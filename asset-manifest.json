@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/react-homework-template/static/css/main.aaf09fe6.css",
+    "main.js": "/react-homework-template/static/js/main.1d154758.js",
+    "static/media/pet-breeds.svg": "/react-homework-template/static/media/pet-breeds.11b3d89395d60dd8686fcd27153b82ad.svg",
+    "static/media/girl_catches_cat.svg": "/react-homework-template/static/media/girl_catches_cat.c9bbff2bdb8842537f95f0922727f855.svg",
+    "static/media/images-search.svg": "/react-homework-template/static/media/images-search.38e43039474803c2021cb4b4be4d502b.svg",
+    "static/media/vote-table.svg": "/react-homework-template/static/media/vote-table.fcbe86ce0f3378d6ba8cced234b9d231.svg",
+    "static/media/logo.svg": "/react-homework-template/static/media/logo.357eb1973096471ea6801715f338def2.svg",
+    "index.html": "/react-homework-template/index.html",
+    "main.aaf09fe6.css.map": "/react-homework-template/static/css/main.aaf09fe6.css.map",
+    "main.1d154758.js.map": "/react-homework-template/static/js/main.1d154758.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aaf09fe6.css",
+    "static/js/main.1d154758.js"
+  ]
+}
