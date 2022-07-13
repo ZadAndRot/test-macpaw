@@ -1,6 +1,6 @@
 {
   "name": "react-homework-template",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "homepage": "https://goitacademy.github.io/react-homework-template/",
   "dependencies": {
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "release":"standard-version",
+    "release": "standard-version",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
