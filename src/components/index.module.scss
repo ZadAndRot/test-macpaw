@@ -1,0 +1,195 @@
+$bgcolor: #e5e5e5;
+$hover: #fbe0dc;
+$active: #ff868e;
+
+.app {
+  /* Home */
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  background: #f8f8f7;
+  overflow: hidden;
+}
+
+.right {
+  position: absolute;
+  width: 50vw;
+
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+
+  background: $hover;
+  border-radius: 20px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.left {
+  position: absolute;
+  width: max-content;
+  height: 544px;
+  // left: 100px;
+  top: 30px;
+  border-radius: 20px;
+  margin-left: 139px;
+  top:30px
+}
+
+.logo {
+  /* Logo */
+
+  width: 106.16px;
+  height: 24px;
+  margin-bottom: 90px;
+}
+
+.start {
+  /* Lets start using The Cat API */
+
+  
+  width: 241px;
+  height: 29px;
+ 
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #1d1d1d;
+}
+
+.hello {
+  /* Hi intern! */
+
+  width: 184px;
+  height: 58px;
+
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 58px;
+  /* identical to box height, or 132% */
+
+  color: #1d1d1d;
+}
+
+.welcome {
+  /* Welcome to MI 2022 Front-end test */
+
+  width: 300px;
+  height: 29px;
+
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #8c8c8c;
+  margin-bottom: 70px;
+}
+
+// .table:hover{
+//   border: 4px solid #FFFFFF;
+// }
+
+// .table:active{
+//   border: 4px solid #FBE0DC
+// }
+
+.girl {
+  /* girl-and-pet 1 */
+  
+  height: 100vh;
+  position: absolute;
+  right: -18px;
+  top: -40px;
+  bottom: 40px;
+
+  /* Inside auto layout */
+}
+
+.btn {
+  background: #ffffff;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+  
+  width: 138px;
+  height: 36px;
+  text-align: center;
+  letter-spacing: 2px;
+
+  color: #ff868e;
+  margin-left: 16px;
+}
+.btn:hover {
+  background-color: $hover;
+}
+
+.btn:active {
+  background-color: $active;
+}
+
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -16px;
+  
+}
+
+.flex_item {
+  box-sizing: border-box;
+
+  width: 138px;
+  height: 198px;
+
+  border-radius: 20px;
+  margin-left: 16px;
+  margin-bottom:5px ;
+  
+}
+.vote {
+  background: #b4b7ff;
+  border: 4px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+}
+
+.pet {
+  background: #97eab9;
+  border: 4px solid rgba(255, 255, 255, 0.6);
+}
+
+.images {
+  background: #ffd280;
+  border: 4px solid rgba(255, 255, 255, 0.6);
+}
+
+.flex_item:hover {
+  border: 4px solid #ffffff;
+}
+
+.flex_item:active {
+  border: 4px solid #fbe0dc;
+}
+
+.img {
+  width: 117px;
+  height: 163px;
+}
