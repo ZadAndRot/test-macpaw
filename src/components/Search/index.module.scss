@@ -1,0 +1,75 @@
+$bgcolor: #e5e5e5;
+$hover: #fbe0dc;
+$active: #ff868e;
+
+.tools {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+
+.button {
+  width: 60px;
+  height: 60px;
+
+  background: #ffffff;
+
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  border: none;
+  background-position: center;
+}
+
+.button_smile {
+  background-image: url(../images//smile_default.svg);
+}
+
+.button_heart {
+  background-image: url(../images//heart_default.svg);
+}
+
+.button_upset_smile {
+  background-image: url(../images//upset_smile_default.svg);
+}
+
+.button_smile:hover,
+.button_heart:hover,
+.button_upset_smile:hover {
+  background-color: $hover;
+}
+
+.button_smile:active,
+.button_heart:active,
+.button_upset_smile:active {
+  background-color: $active;
+}
+
+.button_smile:active{
+    background-image: url(../images/smile_active.svg);
+}
+
+.button_heart:active{
+    background-image: url(../images/heart_active.svg);
+}
+
+.button_upset_smile{
+    background-image: url(../images/upset_smile_default.svg);
+}
+
+
+.button_smile:active {
+  background-color: $active;
+  background-image: url(../images//smile_active.svg);
+}
+
+.search {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 470px;
+  height: 60px;
+  border: none;
+}
+

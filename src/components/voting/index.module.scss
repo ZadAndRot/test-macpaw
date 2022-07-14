@@ -1,0 +1,153 @@
+$bgcolor: #e5e5e5;
+$hover: #fbe0dc;
+$active: #ff868e;
+
+.right {
+  width: 45vw;
+  height: 100vh;
+  margin-right: 30px;
+}
+
+.page_voting {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 5px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.back:active {
+  background-color: $active;
+  background-image: url(../images/wing_active.svg);
+}
+
+.button {
+  width: 146px;
+  height: 40px;
+  background: $active;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  letter-spacing: 2px;
+
+  color: #ffffff;
+}
+.back {
+  width: 40px;
+  height: 40px;
+  background-color: $hover;
+  background-image: url(../images//wing_default.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-right: 5px;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  letter-spacing: 2px;
+
+  color: #ffffff00;
+}
+.ava {
+  width: 100%;
+  height: 100%;
+}
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.image_container {
+  width: 95%;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg);
+}
+
+.voting_button {
+  border: 4px solid #ffffff;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  width: max-content;
+  overflow: hidden;
+  top:-40px;
+  background-color: white;
+}
+.like {
+  width: 80px;
+  height: 80px;
+  background: #97eab9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../images/like.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.like:hover{
+  background: rgba(151, 234, 185, 0.3);
+  background-image: url(../images/like_hover.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+}
+
+
+.favorities {
+  width: 80px;
+  height: 80px;
+  background: #ff868e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../images/favorities.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.favorities:hover{
+  background: rgba(255, 134, 142, 0.3);
+  background-image: url(../images/favorities_hover.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
+.dislike {
+  width: 80px;
+  height: 80px;
+  background: #ffd280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../images/dislike.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.dislike:hover{
+  background: rgba(255, 210, 128, 0.3);
+  background-image: url(../images/dislike_hover.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
+

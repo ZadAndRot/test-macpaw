@@ -1,10 +1,11 @@
 import { Component } from 'react';
 import styles from '../components/index.module.scss';
-import girl from '../components/images/girl_catches_cat.svg';
 import logo from '../components/images/logo.svg';
 import vote_table from 'components/images/vote-table.svg';
 import pet_breeds from 'components/images/pet-breeds.svg';
 import images_search from 'components/images/images-search.svg';
+import RightDefaulf from './Starting';
+import Voting from './voting';
 
 export class App extends Component {
   // state = {
@@ -66,8 +67,10 @@ export class App extends Component {
           </div>
         </div>
 
-        <div className={styles.right}></div>
-        <img alt="" className={styles.girl} src={girl} />
+        {/* <RightDefaulf/> */}
+        <Voting/>
+
+        
       </div>
     );
   }

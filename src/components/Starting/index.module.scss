@@ -1,0 +1,34 @@
+$bgcolor: #e5e5e5;
+$hover: #fbe0dc;
+$active: #ff868e;
+
+
+
+.right {
+  position: absolute;
+  width: 45vw;
+
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+
+  background: $hover;
+  border-radius: 20px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.girl {
+  /* girl-and-pet 1 */
+  
+  height: 100vh;
+  position: absolute;
+  right: -18px;
+  top: -40px;
+  bottom: 40px;
+
+  /* Inside auto layout */
+}
+
