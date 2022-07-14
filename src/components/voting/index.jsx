@@ -2,9 +2,6 @@ import { Component, Fragment } from 'react';
 import styles from '../voting/index.module.scss';
 import Search from 'components/Search';
 import Action from 'components/Actions';
-import like from '../images/like.svg';
-import favorities from '../images/favorities.svg';
-import dislike from '../images/dislike.svg';
 
 class Voting extends Component {
   render() {
@@ -27,14 +24,9 @@ class Voting extends Component {
                 /> */}
               </div>
               <div className={styles.voting_button}>
-                <div className={styles.like}>
-                  
-                </div>
-                <div className={styles.favorities}>
-                  
-                </div>
-                <div className={styles.dislike}>
-                   </div>
+                <div className={styles.like}></div>
+                <div className={styles.favorities}></div>
+                <div className={styles.dislike}></div>
               </div>
               <Action />
               <Action />
