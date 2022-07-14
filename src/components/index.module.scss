@@ -96,8 +96,9 @@ $active: #ff868e;
   background-color: $hover;
 }
 
-.btn:active {
+.btn_active {
   background-color: $active;
+  color: white;
 }
 
 .container {
@@ -135,7 +136,7 @@ $active: #ff868e;
   border: 4px solid #ffffff;
 }
 
-.flex_item:active {
+.flex_item_active {
   border: 4px solid #fbe0dc;
 }
 

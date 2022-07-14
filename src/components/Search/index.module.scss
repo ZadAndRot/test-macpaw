@@ -71,5 +71,23 @@ $active: #ff868e;
   width: 470px;
   height: 60px;
   border: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.search_img{
+   
+}
+.input_container img{
+  position: absolute;
+  right: 15px;
+}
+
+.input_container{
+  height: max-content;
+  width: max-content;
+  position: relative;
+  display:flex;
+  align-items: center;
 }
 

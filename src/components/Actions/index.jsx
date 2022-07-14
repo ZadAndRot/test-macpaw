@@ -1,15 +1,17 @@
 import { Component } from "react";
 import styles from "../Actions/index.module.scss"
-import pink_heart from "../images/pink_heart.svg"
+
 
 
 class Action extends Component{
+   
     render(){
+        const {text,image}=this.props
         return(
             <div className={styles.action}>
-                <div className={styles.time}>{new Date().getDate()}</div>
-                Image ID: fQSunHvl8 was added to Favourites
-                <img className={styles.smile} src={pink_heart} alt=""/>
+                <div className={styles.time}>{new Date().getHours().toLocaleString()+":"+new Date().getMinutes().toLocaleString()}</div>
+                {text}
+                <img className={styles.smile} src={image} alt=""/>
                 
               </div>
         )
