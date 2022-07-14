@@ -22,9 +22,40 @@ export class App extends Component {
       { id: 'id-2', text: 'Cat was added to favorities', image: favorite },
       { id: 'id-3', text: 'Cat was added to favorities', image: favorite },
     ],
-    favorite: [],
-    liked: [],
-    disliked: [],
+    favorite: [
+      {
+        id: 'abys',
+        breed: 'Abyssinian',
+        url: 'https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg',
+      },
+    ],
+    liked: [
+      {
+        id: 'abys',
+        breed: 'Abyssinian',
+        url: 'https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg',
+      },
+    ],
+    disliked: [
+      {
+        id: 'abys',
+        breed: 'Abyssinian',
+        url: 'https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg',
+      },
+    ],
+  };
+
+  showFavorities = text => {
+    console.log('hello');
+    if (text === 'favourite') {
+      this.setState({ page_id: 'favourite' });
+    } else if (text === 'likes') {
+      this.setState({ page_id: 'likes' });
+    } else if (text === 'dislikes') {
+      this.setState({ page_id: 'dislikes' });
+    } else {
+      console.log('something wrong');
+    }
   };
 
   async componentDidMount() {
@@ -245,7 +276,11 @@ export class App extends Component {
           <RightDefaulf />
         ) : (
           <Voting
+            showFavorities={this.showFavorities}
             items={this.state.items}
+            favourities={this.state.favorite}
+            likes={this.state.liked}
+            dislikes={this.state.disliked}
             history={this.state.history}
             addHistory={this.addHistory}
             page_id={this.state.page_id}
