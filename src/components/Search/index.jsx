@@ -16,7 +16,7 @@ class Search extends Component {
           <img className={styles.search_img} src={search_img} alt="" />
         </div>
 
-        <button
+        <button active="true"
           onClick={() => {
             showFavorities('likes');
           }}

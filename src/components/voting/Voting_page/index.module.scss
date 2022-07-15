@@ -43,7 +43,7 @@ $active: #ff868e;
   width: 40px;
   height: 40px;
   background-color: $hover;
-  background-image: url(../../images//wing_default.svg);
+  background-image: url(../../images/wing_default.svg);
   background-repeat: no-repeat;
   background-position: center;
 
@@ -61,10 +61,7 @@ $active: #ff868e;
 
   color: #ffffff00;
 }
-.ava {
-  
-  height: 100%;
-}
+
 .page {
   display: flex;
   justify-content: center;
@@ -72,7 +69,10 @@ $active: #ff868e;
   flex-direction: column;
   padding-top: 20px;
 }
-
+.ava {
+  
+  height: 100%;
+}
 .image_container {
   width: 95%;
   height: 300px;

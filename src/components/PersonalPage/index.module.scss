@@ -1,0 +1,163 @@
+$bgcolor: #e5e5e5;
+$hover: #fbe0dc;
+$active: #ff868e;
+
+.button {
+  width: 146px;
+  height: 40px;
+  background: $active;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  letter-spacing: 2px;
+
+  color: #ffffff;
+}
+.back {
+  width: 40px;
+  height: 40px;
+  background-color: $hover;
+  background-image: url(../images/wing_default.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-right: 5px;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  letter-spacing: 2px;
+
+  color: #ffffff00;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20px;
+  margin-top: 5px;
+}
+
+.id {
+  width: 90px;
+  margin-left: 5px;
+}
+
+.ava {
+  height: 100%;
+}
+.image_container {
+  width: 95%;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-image: url(https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg);
+}
+
+.scroll {
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  top: -15px;
+  margin: 0 auto;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: lightpink;
+  border-radius: 50%;
+}
+
+.circle_active {
+  background-color: $active;
+}
+.inform{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.section{
+    width: 270px;
+    height: 89px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.value{
+    font-family: 'Jost';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 23px;
+
+color: gray;
+
+}
+
+.key{
+    color: black;
+
+}
+
+.fieldset{
+    width: 640px;
+height: max-content;
+border: 2px solid #FBE0DC;
+border-radius: 20px;
+text-align: center;
+}
+
+.legend{
+    font-family: 'Jost';
+font-style: normal;
+font-weight: 500;
+font-size: 36px;
+line-height: 52px;
+/* identical to box height */
+margin: 0 auto;
+
+
+color: #1D1D1D;
+}
+
+.description{
+    font-family: 'Jost';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 29px;
+/* identical to box height */
+margin-bottom: 20px;
+
+
+color: #8C8C8C;
+
+}

@@ -17,6 +17,7 @@ export class App extends Component {
     page_id: 'default',
     status: false,
     items: [],
+    person:{},
     history: [
       { id: 'id-1', text: 'Cat was added to favorities', image: favorite },
       { id: 'id-2', text: 'Cat was added to favorities', image: favorite },
@@ -43,6 +44,26 @@ export class App extends Component {
         url: 'https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg',
       },
     ],
+  };
+
+  back_to_breeds=()=>{
+    
+  }
+
+  showElementByName = e => {
+    let item = {};
+    
+      
+      for (let i = 0; i < this.state.items.length; i++) {
+        if (this.state.items[i].id === e.target.value) {
+          item = this.state.items[i];
+        }
+      }
+    
+
+    this.setState({page_id:"personal",person:item})
+
+    
   };
 
   showFavorities = text => {
@@ -276,6 +297,8 @@ export class App extends Component {
           <RightDefaulf />
         ) : (
           <Voting
+            showElementByName={this.showElementByName}
+            person={this.state.person}
             showFavorities={this.showFavorities}
             items={this.state.items}
             favourities={this.state.favorite}

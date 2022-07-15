@@ -10,7 +10,6 @@ $active: #ff868e;
   margin-top: 30px;
 }
 
-
 .button {
   width: 60px;
   height: 60px;
@@ -21,6 +20,10 @@ $active: #ff868e;
   border-radius: 20px;
   border: none;
   background-position: center;
+}
+
+.button:active {
+  background-color: black;
 }
 
 .button_smile {
@@ -47,18 +50,17 @@ $active: #ff868e;
   background-color: $active;
 }
 
-.button_smile:active{
-    background-image: url(../images/smile_active.svg);
+.button_smile:active {
+  background-image: url(../images/smile_active.svg);
 }
 
-.button_heart:active{
-    background-image: url(../images/heart_active.svg);
+.button_heart:active {
+  background-image: url(../images/heart_active.svg);
 }
 
-.button_upset_smile{
-    background-image: url(../images/upset_smile_default.svg);
+.button_upset_smile {
+  background-image: url(../images/upset_smile_default.svg);
 }
-
 
 .button_smile:active {
   background-color: $active;
@@ -75,19 +77,17 @@ $active: #ff868e;
   box-sizing: border-box;
 }
 
-.search_img{
-   
+.search_img {
 }
-.input_container img{
+.input_container img {
   position: absolute;
   right: 15px;
 }
 
-.input_container{
+.input_container {
   height: max-content;
   width: max-content;
   position: relative;
-  display:flex;
+  display: flex;
   align-items: center;
 }
-
