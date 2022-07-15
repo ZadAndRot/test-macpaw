@@ -18,7 +18,7 @@ class PersonalPage extends Component {
             H
           </button>
           <button type="button" className={styles.button}>
-            perso
+            BREEDS
           </button>
           <button type="button" className={styles.button + ' ' + styles.id}>
             {person.id}

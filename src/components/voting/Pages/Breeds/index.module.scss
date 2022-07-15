@@ -151,7 +151,6 @@ $active: #ff868e;
   grid-area: rt;
   width: 200px;
   height: 300px;
-  
 }
 .item2_rev {
   grid-area: ct;
@@ -172,7 +171,6 @@ $active: #ff868e;
   grid-area: lb;
   width: 420px;
   height: 300px;
-  
 }
 
 .grid_container {
@@ -194,4 +192,76 @@ $active: #ff868e;
   grid-gap: 10px;
 
   padding: 10px;
+}
+
+.pages {
+  align-items: center;
+  padding: 12px 30px;
+  gap: 10px;
+
+  background: #fbe0dc;
+  border-radius: 10px;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  letter-spacing: 2px;
+  color: #ff868e;
+  border: none;
+}
+
+.pages:hover {
+  background: #f8f8f7;
+  color: #8c8c8c;
+}
+
+.pages:active {
+  background: #ff868e;
+  color: white;
+}
+
+.pages_prev:hover {
+  background-image: url(../../../images/prev_hover_wing.svg);
+  background-repeat: no-repeat;
+  background-position: left 5px center;
+}
+
+.pages_prev:active {
+  background-image: url(../../../images/prev_active_wing.svg);
+  background-repeat: no-repeat;
+  background-position: left 5px center;
+}
+
+.pages_prev {
+  background-image: url(../../../images/prev_default_wing.svg);
+
+  background-repeat: no-repeat;
+  background-position: left 5px center;
+}
+
+.pages_next:hover {
+  background-image: url(../../../images/next_hover_wingsvg.svg);
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+}
+
+.pages_next:active {
+  background-image: url(../../../images/next_active_wingsvg.svg);
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+}
+
+.pages_next {
+  background-image: url(../../../images/next_default_wing.svg);
+
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  margin-left: 10px;
+}
+.button_container {
+  display: flex;
+  justify-content: center;
 }

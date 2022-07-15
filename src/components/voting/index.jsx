@@ -25,34 +25,36 @@ class Voting extends Component {
       favourities,
       likes,
       dislikes,
-      showElementByName
+      showElementByName,
     } = this.props;
     return (
       <Fragment>
         <div className={styles.right}>
           <Search showFavorities={showFavorities} />
           <div className={styles.page_voting}>
-            {page_id === 'breeds' && <Breeds showElementByName={showElementByName} items={items} />}
+            {page_id === 'breeds' && (
+              <Breeds showElementByName={showElementByName} items={items} />
+            )}
             {page_id === 'voting' && (
               <VotingPage
                 history={history}
                 items={items}
                 addHistory={addHistory}
               />
-            )} 
+            )}
             {page_id === 'gallery' && 'Gallery'}
             {page_id === 'gefault' && <RightDefaulf />}
             {page_id === 'favourite' && (
               <Like title="FAVOURITES" items={favourities} />
             )}
             {page_id === 'likes' && <Like title="LIKES" items={likes} />}
-            {page_id === 'favorities' && <Like title="favorities" items={dislikes} />}
+            {page_id === 'favorities' && (
+              <Like title="favorities" items={dislikes} />
+            )}
             {page_id === 'dislikes' && (
               <Like title="DISLIKES" items={dislikes} />
             )}
-            {page_id === 'personal' && <PersonalPage person={person}  />}
-
-            
+            {page_id === 'personal' && <PersonalPage person={person} />}
           </div>
         </div>
       </Fragment>
