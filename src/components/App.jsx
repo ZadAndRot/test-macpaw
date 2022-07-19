@@ -26,7 +26,16 @@ export class App extends Component {
     favorite: [],
     liked: [],
     disliked: [],
+    modal_status: false,
   };
+
+  open_modal = () => {
+    this.setState({ modal_status: true });
+  };
+
+  close_modal=()=>{
+    this.setState({modal_status: false})
+  }
 
   back_to_breeds = () => {};
 
@@ -207,9 +216,8 @@ export class App extends Component {
 
     return (
       <div className={styles.app}>
-        <Upload/>
-      
-        
+        {this.state.modal_status && <Upload close_modal={this.close_modal} />}
+
         {/* <button type='button' onClick={this.fn}>click</button>
         
         {this.state.status===true?<div>{this.state.item.map((el)=> el.id)}</div>:"Loading...."} */}
@@ -286,6 +294,7 @@ export class App extends Component {
             history={this.state.history}
             addHistory={this.addHistory}
             page_id={this.state.page_id}
+            open_modal={this.open_modal}
           />
         )}
       </div>

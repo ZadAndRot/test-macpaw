@@ -32,7 +32,7 @@ class Upload extends Component {
       <Fragment>
         <div className={styles.modal_back}>
           <div className={styles.modal_body}>
-            <button className={styles.close_modal}></button>
+            <button onClick={()=>{this.props.close_modal()}} className={styles.close_modal}></button>
             <p className={styles.h1}>Upload a .jpg or .png Cat Image</p>
             <p className={styles.h2}>
               Any uploads must comply with the{' '}

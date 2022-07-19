@@ -26,6 +26,7 @@ class Voting extends Component {
       likes,
       dislikes,
       showElementByName,
+      open_modal
     } = this.props;
     return (
       <Fragment>
@@ -42,7 +43,7 @@ class Voting extends Component {
                 addHistory={addHistory}
               />
             )}
-            {page_id === 'gallery' && <Gallery/>}
+            {page_id === 'gallery' && <Gallery open_modal={open_modal}/>}
             {page_id === 'gefault' && <RightDefaulf />}
             {page_id === 'favourite' && (
               <Like title="FAVOURITES" items={favourities} />

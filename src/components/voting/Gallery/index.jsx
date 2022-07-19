@@ -111,8 +111,8 @@ class Gallery extends Component {
               GALLERY
             </button>
           </div>
-          <button type="button" className={styles.upload}>
-            GALLERY
+          <button onClick={()=>{this.props.open_modal()}} type="button" className={styles.upload}>
+            Upload
           </button>
         </div>
         <form className={styles.form}>
