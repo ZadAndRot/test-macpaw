@@ -3,11 +3,10 @@ import { Component, Fragment } from 'react';
 import styles from '../Upload/index.module.css';
 
 class Upload extends Component {
-
-    state={
-        files:[],
-        images:null
-    }
+  state = {
+    files: [],
+    images: null,
+  };
   componentDidMount() {
     const forma = document.querySelector('form');
     const inp = forma.querySelector('input');
@@ -16,35 +15,36 @@ class Upload extends Component {
     });
   }
 
-  removeFile=(filename)=>{
-    this.setState((prev)=>({files:prev.files.filter(file=>file.name!==filename)}))
-  }
+  removeFile = filename => {
+    this.setState(prev => ({
+      files: prev.files.filter(file => file.name !== filename),
+    }));
+  };
 
   handleGetFile = e => {
     let file = e.target.files[0];
-    this.setState({images:URL.createObjectURL(file)})
-    file.isUploadung=true;
-    this.setState((prev)=>({files:[...prev.files,file]}))
+    this.setState({ images: URL.createObjectURL(file) });
+    
+    file.isUploadung = true;
+    this.setState(prev => ({ files: [...prev.files, file] }));
 
-    const formData=new FormData();
-    formData.append(
-        file.name,
-        file,
-        file.name
-    )
+    const formData = new FormData();
+    formData.append(file.name, file, file.name);
 
-    axios.post('http://localhost:8080/upload',formData)
-    .then((res)=>{
-        file.isUploadung=false;
-        this.setState((prev)=>({files:[...prev.files,file]}))
+    axios
+    
+    .post('https://ZadAndRot.github.io/test-macpaw/upload', formData)
+      // .post('http://localhost:8080/upload', formData)
+      .then(res => {
+        file.isUploadung = false;
+        this.setState(prev => ({ files: [...prev.files, file] }));
+      })
+      .catch(err => {
+        console.error(err);
+        this.removeFile(file.name);
+      });
 
-    })
-    .catch((err)=>{
-        console.error(err)
-        this.removeFile(file.name)
-    })
-
-    console.log(this.state.files)
+    console.log(this.state.files);
   };
 
   render() {
@@ -58,8 +58,16 @@ class Upload extends Component {
               <span style={{ color: 'red' }}>upload guidelines</span> or face
               deletion.
             </p>
+            {this.state.images}
             <form className={styles.desc}>
-            {this.state.images&&<img className={styles.image_uploaded} src={this.state.images} alt="no photo"/>}
+             
+              {this.state.images && (
+                <img
+                  className={styles.image_uploaded}
+                  src={this.state.images}
+                  alt="no photo"
+                />
+              )}
               <input
                 hidden
                 className={styles.hidden}
@@ -75,7 +83,6 @@ class Upload extends Component {
             </form>
             <p className={styles.h2}>No file selected</p>
           </div>
-          
         </div>
       </Fragment>
     );
