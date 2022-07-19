@@ -4,12 +4,17 @@ import { Fragment } from 'react';
 import Loader from 'components/Loader';
 
 
+
+
+
 class Gallery extends Component {
   state = {
     status: false,
     items: [],
     limit: 5,
   };
+
+
 
   async componentDidMount() {
     fetch(
@@ -77,7 +82,7 @@ class Gallery extends Component {
     } else if (e.target.value === 'random') {
       this.setState({
         items: this.state.items.sort(function (a, b) {
-          return Math.random() < Math.random() ? -1 : 1;
+          return Math.random() <=0.5 ? -1 : 1;
         }),
       });
     }
@@ -86,6 +91,7 @@ class Gallery extends Component {
   render() {
     return (
       <Fragment>
+        
         <div className={styles.menu}>
           <div className={styles.left}>
             <button
@@ -153,6 +159,7 @@ class Gallery extends Component {
           {this.state.items.map(item => (
             <img className={styles.image} src={item.image.url} alt={item.id} />
           ))}
+         
         </div>
         {this.state.status === false && <Loader />}
         <button
@@ -163,6 +170,7 @@ class Gallery extends Component {
         >
           Upload photo
         </button>
+        
       </Fragment>
     );
   }

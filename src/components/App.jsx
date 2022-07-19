@@ -208,6 +208,8 @@ export class App extends Component {
     return (
       <div className={styles.app}>
         <Upload/>
+      
+        
         {/* <button type='button' onClick={this.fn}>click</button>
         
         {this.state.status===true?<div>{this.state.item.map((el)=> el.id)}</div>:"Loading...."} */}
