@@ -1,0 +1,180 @@
+$bgcolor: #e5e5e5;
+$hover: #fbe0dc;
+$active: #ff868e;
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: max-content;
+}
+
+.button {
+  width: 146px;
+  height: 40px;
+  background: $active;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  letter-spacing: 2px;
+
+  color: #ffffff;
+}
+
+.back {
+  width: 40px;
+  height: 40px;
+  background-color: $hover;
+  background-image: url(../../images/wing_default.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 5px;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  letter-spacing: 2px;
+
+  color: #ffffff00;
+}
+
+.upload {
+  width: 143px;
+  height: 40px;
+  background: $hover;
+  border-radius: 10px;
+  color: $active;
+  border: none;
+  background-image: url(../../images/upload_default.svg);
+  background-position: left 10px center;
+  background-repeat: no-repeat;
+}
+
+.upload:hover {
+  background-color: $active;
+  color: white;
+  background-image: url(../../images/upload_active.svg);
+  background-position: left 10px center;
+  background-repeat: no-repeat;
+}
+
+.gallery {
+  display: grid;
+  margin-top: 10px;
+}
+
+.image {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.more {
+  width: 172px;
+  height: 40px;
+  background: $active;
+  border-radius: 10px;
+  border: none;
+  margin: 0 auto;
+}
+
+.form {
+  margin-top: 5px;
+  width: 640px;
+  height: max-content;
+  background-color: $bgcolor;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+
+  padding-right: 0px;
+  padding-bottom: 0px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.select {
+  width: 275px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  color: #1d1d1d;
+
+  border: none;
+  display: block;
+  margin-top: 30px;
+}
+
+.select:hover {
+  border: 1px solid $hover;
+}
+
+.scroll {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  background-image: url(../../images/scroll_default.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  margin-top: -30px;
+}
+
+form div {
+  padding-left: 30px;
+  margin-left: -30px;
+  margin-top: -30px;
+  width: 50%;
+}
+
+form div div {
+  display: flex;
+  justify-content: space-between;
+  width: 275px;
+  height: 40px;
+  margin-top: 60px;
+}
+
+form div div .select {
+  width: 225px;
+  height: 40px;
+  margin-top: -30px;
+}
+
+.scroll:hover {
+  background-color: $hover;
+ 
+}
+
+.scroll:active {
+  background-image: url(../../images/scroll_active.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $active;
+}

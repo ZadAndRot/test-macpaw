@@ -8,7 +8,7 @@ import Like from 'components/Like_dislike';
 
 import VotingPage from './Voting_page';
 import PersonalPage from 'components/PersonalPage';
-
+import Gallery from './Gallery';
 class Voting extends Component {
   static propTypes = {
     page_id: PropTypes.string.isRequired,
@@ -42,7 +42,7 @@ class Voting extends Component {
                 addHistory={addHistory}
               />
             )}
-            {page_id === 'gallery' && 'Gallery'}
+            {page_id === 'gallery' && <Gallery/>}
             {page_id === 'gefault' && <RightDefaulf />}
             {page_id === 'favourite' && (
               <Like title="FAVOURITES" items={favourities} />

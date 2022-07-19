@@ -5,7 +5,7 @@ import vote_table from 'components/images/vote-table.svg';
 import pet_breeds from 'components/images/pet-breeds.svg';
 import images_search from 'components/images/images-search.svg';
 import Voting from '../components/voting';
-
+import Upload from './Upload';
 import favorite from '../components/images/pink_heart.svg';
 import likes from '../components/images/green_smile.svg';
 import dislikes from '../components/images/yellow_smile.svg';
@@ -23,27 +23,9 @@ export class App extends Component {
       { id: 'id-2', text: 'Cat was added to favorities', image: favorite },
       { id: 'id-3', text: 'Cat was added to favorities', image: favorite },
     ],
-    favorite: [
-      {
-        id: 'abys',
-        breed: 'Abyssinian',
-        url: 'https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg',
-      },
-    ],
-    liked: [
-      {
-        id: 'abys',
-        breed: 'Abyssinian',
-        url: 'https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg',
-      },
-    ],
-    disliked: [
-      {
-        id: 'abys',
-        breed: 'Abyssinian',
-        url: 'https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg',
-      },
-    ],
+    favorite: [],
+    liked: [],
+    disliked: [],
   };
 
   back_to_breeds = () => {};
@@ -225,6 +207,7 @@ export class App extends Component {
 
     return (
       <div className={styles.app}>
+        <Upload/>
         {/* <button type='button' onClick={this.fn}>click</button>
         
         {this.state.status===true?<div>{this.state.item.map((el)=> el.id)}</div>:"Loading...."} */}
