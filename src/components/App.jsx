@@ -16,8 +16,12 @@ export class App extends Component {
   state = {
     page_id: 'default',
     status: false,
+    all: [],
     items: [],
     person: {},
+    limit: 5,
+    page: 0,
+    path: ["default"],
     history: [
       { id: 'id-1', text: 'Cat was added to favorities', image: favorite },
       { id: 'id-2', text: 'Cat was added to favorities', image: favorite },
@@ -31,10 +35,38 @@ export class App extends Component {
     searched: [],
   };
 
+  handleGoBack = () => {
+    this.setState(prev => ({ page_id: prev.path[prev.path.length - 2] }));
+  };
+
+  updatePage = number => {
+    this.setState(prev => ({ page: prev.page + number }));
+  };
+
+  updateLimit = limit => {
+    this.setState({ limit: limit });
+  };
+
+  handleOrderItems = e => {
+    if (e === 'asc') {
+      this.setState({
+        items: this.state.items.sort(function (a, b) {
+          return a.name.localeCompare(b.name);
+        }),
+      });
+    } else if (e === 'desc') {
+      this.setState({
+        items: this.state.items.sort(function (a, b) {
+          return b.name.localeCompare(a.name);
+        }),
+      });
+    }
+  };
+
   handleInputClicked = (value, e) => {
     e.preventDefault();
     this.setState({
-      searched: this.state.items.filter(el => el.name === value),
+      searched: this.state.all.filter(el => el.name.includes(value)),
     });
     console.log(this.state.searched);
   };
@@ -46,8 +78,6 @@ export class App extends Component {
         { id: id, image: { url: url }, name: name },
       ],
     }));
-
-    console.log(this.state.uploadedFiles);
   };
 
   open_modal = () => {
@@ -61,40 +91,83 @@ export class App extends Component {
   showElementByName = e => {
     let item = {};
 
-    for (let i = 0; i < this.state.items.length; i++) {
-      if (this.state.items[i].id === e.target.value) {
-        item = this.state.items[i];
+    for (let i = 0; i < this.state.all.length; i++) {
+      if (this.state.all[i].id === e.target.value) {
+        item = this.state.all[i];
       }
     }
 
     this.setState({ page_id: 'personal', person: item });
+    this.setState(prev => ({ path: [...prev.path, 'personal'] }));
   };
 
   showFavorities = text => {
     console.log('hello');
     if (text === 'favourite') {
       this.setState({ page_id: 'favourite' });
+      this.setState(prev => ({ path: [...prev.path, 'favourite'] }));
     } else if (text === 'likes') {
       this.setState({ page_id: 'likes' });
+      this.setState(prev => ({ path: [...prev.path, 'likes'] }));
     } else if (text === 'dislikes') {
       this.setState({ page_id: 'dislikes' });
+      this.setState(prev => ({ path: [...prev.path, 'dislikes'] }));
     } else if (text === 'search') {
       this.setState({ page_id: 'search' });
+      this.setState(prev => ({ path: [...prev.path, 'search'] }));
     } else {
       console.log('something wrong');
     }
   };
 
   async componentDidMount() {
-    fetch('https://api.thecatapi.com/v1/breeds')
+    fetch(
+      `https://api.thecatapi.com/v1/breeds?&limit=${this.state.limit}&page=${this.state.page}`
+    )
       .then(res =>
         res.json().then(json => {
-          this.setState({ status: true, items: json });
+          this.setState({
+            status: true,
+            items: json.filter(el =>
+              Object.keys(el).some(key => key === 'image')
+            ),
+          });
         })
       )
       .finally(this.setState({ status: false }));
+    fetch(`https://api.thecatapi.com/v1/breeds`)
+      .then(res =>
+        res.json().then(json => {
+          this.setState({
+            all: json.filter(el =>
+              Object.keys(el).some(key => key === 'image')
+            ),
+          });
+        })
+      )
+      .finally(this.setState({ status: false }));
+  }
 
-    console.log(this.state.items);
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.limit !== this.state.limit ||
+      prevState.page !== this.state.page
+    ) {
+      fetch(
+        `https://api.thecatapi.com/v1/breeds?&limit=${this.state.limit}&page=${this.state.page}`
+      ).then(res =>
+        res
+          .json()
+          .then(json => {
+            this.setState(prev => ({
+              status: true,
+              items: [...json],
+            }));
+            console.log(json);
+          })
+          .finally(this.setState({ status: false }))
+      );
+    }
   }
 
   addHistory = (text, item, only) => {
@@ -243,11 +316,13 @@ export class App extends Component {
     if (e.currentTarget === active[0]) {
       e.currentTarget.classList.remove(styles.flex_item_active);
       this.setState({ page_id: 'default' });
+      this.setState(prev => ({ path: [...prev.path, 'default'] }));
     } else {
       active[0] && active[0].classList.remove(styles.flex_item_active);
       e.currentTarget.classList.add(styles.flex_item_active);
 
       this.setState({ page_id: page });
+      this.setState(prev => ({ path: [...prev.path, page] }));
     }
   };
 
@@ -318,12 +393,15 @@ export class App extends Component {
           </div>
         </div>
 
-        {/* <RightDefaulf/> */}
-
         {this.state.page_id === 'default' ? (
           <RightDefaulf />
         ) : (
           <Voting
+            onGoBack={this.handleGoBack}
+            all={this.state.all}
+            updatePage={this.updatePage}
+            updateLimit={this.updateLimit}
+            handleOrderItems={this.handleOrderItems}
             searched={this.state.searched}
             onInputClicked={this.handleInputClicked}
             uploadedFiles={this.state.uploadedFiles}

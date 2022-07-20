@@ -91,6 +91,13 @@ $active: #ff868e;
   background-image: url(../../../images/sort_upp.svg);
 }
 
+.button_sort_down:hover {
+  background-image: url(../../../images/sort_down_hover.svg);
+}
+.button_sort_upp:hover {
+  background-image: url(../../../images/sort_upp_hover.svg);
+}
+
 .button_sort {
   width: 40px;
   height: 40px;
@@ -105,73 +112,62 @@ $active: #ff868e;
   border: 2px solid #fbe0dc;
 }
 
-.button_sort_down:hover {
-  background-image: url(../../../images/sort_down_hover.svg);
-}
-.button_sort_upp {
-  background-image: url(../../../images/sort_upp_hover.svg);
-}
+
 
 .item {
+  position: relative;
   border-radius: 10px;
   overflow: hidden;
+  width: 250px;
+  height: 200px
 }
 .item_img {
   width: 100%;
   height: 100%;
 }
 
-.item1 {
-  grid-area: rt;
-  width: 200px;
-  height: 140px;
-}
-.item2 {
-  grid-area: ct;
-  width: 200px;
-  height: 140px;
-}
-.item3 {
-  grid-area: lt;
-  width: 200px;
-  height: 300px;
-}
-.item4 {
-  grid-area: rb;
-  width: 420px;
-  height: 300px;
-}
-.item5 {
-  grid-area: lb;
-  width: 200px;
-  height: 140px;
+
+.hovered_div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 134, 142, 0.6);
+  text-align: center;
+  color: white;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  z-index: 4;
+  display: none;
+  
+
+  /* identical to box height, or 150% */
 }
 
-.item1_rev {
-  grid-area: rt;
-  width: 200px;
-  height: 300px;
+.hovered {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
-.item2_rev {
-  grid-area: ct;
-  width: 200px;
-  height: 140px;
+
+.hovered_text {
+  background: #ffffff;
+  border-radius: 10px;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px;
+
+  text-align: center;
+
+  color: #ff868e;
+  margin-bottom: 15px;
 }
-.item3_rev {
-  grid-area: lt;
-  width: 200px;
-  height: 140px;
-}
-.item4_rev {
-  grid-area: rb;
-  width: 200px;
-  height: 140px;
-}
-.item5_rev {
-  grid-area: lb;
-  width: 420px;
-  height: 300px;
-}
+
 
 .grid_container {
   display: grid;

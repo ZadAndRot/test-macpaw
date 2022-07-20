@@ -16,6 +16,11 @@ class Voting extends Component {
 
   render() {
     const {
+      onGoBack,
+      all,
+      updatePage,
+      updateLimit,
+      handleOrderItems,
       status,
       uploadedFiles,
       page_id,
@@ -38,29 +43,30 @@ class Voting extends Component {
           <Search showFavorities={showFavorities} onInputClicked={onInputClicked}  />
           <div className={styles.page_voting}>
             {page_id === 'breeds' && (
-              <Breeds status={status} showElementByName={showElementByName} items={items} />
+              <Breeds onGoBack={onGoBack} all={all} updateLimit={updateLimit} updatePage={updatePage} handleOrderItems={handleOrderItems} status={status} showElementByName={showElementByName} items={items} />
             )}
             {page_id === 'search' && (
-              <SearchResults searched={searched} />
+              <SearchResults onGoBack={onGoBack} searched={searched} />
             )}
             {page_id === 'voting' && (
               <VotingPage
+              onGoBack={onGoBack}
                 history={history}
-                items={items}
+                items={all}
                 addHistory={addHistory}
               />
             )}
-            {page_id === 'gallery' && <Gallery addHistory={addHistory} uploadedFiles={uploadedFiles} open_modal={open_modal}/>}
+            {page_id === 'gallery' && <Gallery onGoBack={onGoBack} showElementByName={showElementByName} all={all} addHistory={addHistory} uploadedFiles={uploadedFiles} open_modal={open_modal}/>}
             {page_id === 'gefault' && <RightDefaulf />}
             {page_id === 'favourite' && (
-              <Like addHistory={addHistory} text="favorities" title="FAVOURITES" items={favourities} />
+              <Like onGoBack={onGoBack} addHistory={addHistory} text="favorities" title="FAVOURITES" items={favourities} />
             )}
-            {page_id === 'likes' && <Like addHistory={addHistory} text="likes" title="LIKES" items={likes} />}
+            {page_id === 'likes' && <Like onGoBack={onGoBack} addHistory={addHistory} text="likes" title="LIKES" items={likes} />}
            
             {page_id === 'dislikes' && (
-              <Like addHistory={addHistory}  text="dislikes" title="DISLIKES" items={dislikes} />
+              <Like onGoBack={onGoBack} addHistory={addHistory}  text="dislikes" title="DISLIKES" items={dislikes} />
             )}
-            {page_id === 'personal' && <PersonalPage person={person} />}
+            {page_id === 'personal' && <PersonalPage onGoBack={onGoBack} person={person} />}
           </div>
         </div>
       </Fragment>

@@ -7,7 +7,7 @@ class SearchResults extends Component {
       <Fragment>
         <div className={styles.menu}>
           <div className={styles.left}>
-            <button type="button" className={styles.back}></button>
+            <button onClick={()=>{this.props.onGoBack()}} type="button" className={styles.back}></button>
             <button type="button" className={styles.button}>
               SEARCH
             </button>

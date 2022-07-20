@@ -13,35 +13,30 @@ class Breeds extends Component {
 
   changeLimit = e => {
     if (e.target.value === '5') {
-      this.setState({ limit: 5, page: 1 });
+      this.props.updateLimit(5);
     } else if (e.target.value === '10') {
-      this.setState({ limit: 10, page: 1 });
+      this.props.updateLimit(10);
+    } else if (e.target.value === '15') {
+      this.props.updateLimit(15);
+    } else if (e.target.value === '20') {
+      this.props.updateLimit(20);
     }
   };
+  hover = e => {
+    e.currentTarget.children[0].classList.add(styles.hovered);
+  };
 
+  leave = e => {
+    e.currentTarget.children[0].classList.remove(styles.hovered);
+  };
   goToPrev = () => {
-    this.setState(prev => ({ page: prev.page - 1 }));
+    this.props.updatePage(-1);
   };
 
   goToNext = () => {
-    this.setState(prev => ({ page: prev.page + 1 }));
+    this.props.updatePage(1);
   };
 
-  getElementsForGrid5 = () => {
-    let grouped_array = [];
-    let inside_array = [];
-    for (let i = 0; i < this.props.items.length; i++) {
-      if (inside_array.length === 5) {
-        grouped_array.push(inside_array);
-        inside_array = [];
-      } else {
-        inside_array.push(this.props.items[i]);
-      }
-    }
-    grouped_array.push(inside_array);
-    console.log(grouped_array);
-    return grouped_array;
-  };
   render() {
     const { showElementByName } = this.props;
 
@@ -49,20 +44,14 @@ class Breeds extends Component {
       <Fragment>
         <div className={styles.menu}>
           <button
+            onClick={() => {
+              this.props.onGoBack();
+            }}
             type="button"
             className={styles.back}
-            onClick={() => {
-              this.getElementsForGrid5();
-            }}
           ></button>
-          <button
-            type="button"
-            className={styles.button}
-            onClick={() => {
-              this.getElementsForGrid5();
-            }}
-          >
-            VOTING
+          <button type="button" className={styles.button}>
+            BREEDS
           </button>
           <select
             onChange={e => {
@@ -71,7 +60,7 @@ class Breeds extends Component {
             className={styles.all}
           >
             <option value="All items">All items</option>
-            {this.props.items.map(el => (
+            {this.props.all.map(el => (
               <option key={el.id} value={el.id}>
                 {el.name}
               </option>
@@ -87,82 +76,72 @@ class Breeds extends Component {
             <option value="5">Limit:5</option>
             <option value="10">Limit:10</option>
             <option value="15">Limit:15</option>
-            <option value="20">Limit:10</option>
+            <option value="20">Limit:20</option>
           </select>
 
           <button
+            onClick={() => {
+              this.props.handleOrderItems('asc');
+            }}
             type="button"
             className={styles.button_sort + ' ' + styles.button_sort_down}
           ></button>
           <button
+            onClick={() => {
+              this.props.handleOrderItems('desc');
+            }}
             type="button"
-            className={styles.button_sort + ' ' + styles.button_sort_down}
+            className={styles.button_sort + ' ' + styles.button_sort_upp}
           ></button>
         </div>
 
-        {this.state.limit === 10 && (
-          <Fragment>
-            <Grid10
-              goToNext={this.goToNext}
-              goToPrev={this.goToPrev}
-              page={this.state.page}
-              items={this.getElementsForGrid5()}
-            />
-            <div className={styles.button_container}>
-              <button
-                className={styles.pages + ' ' + styles.pages_prev}
-                disabled={this.state.page === 1}
-                onClick={e => {
-                  this.goToPrev(e);
+        <Fragment>
+          {this.props.items.map(el =>
+            el.image.url ? (
+              <div
+                onMouseOver={e => {
+                  this.hover(e);
                 }}
+                onMouseLeave={e => {
+                  this.leave(e);
+                }}
+                key={this.props.items.indexOf(el)}
+                className={styles.item}
               >
-                PREV
-              </button>
+                <div className={styles.hovered_div}>
+                  <span className={styles.hovered_text}>{el.name}</span>
+                </div>
+                <img
+                  className={styles.item_img}
+                  src={el.image.url}
+                  alt="hello"
+                />
+              </div>
+            ) : null
+          )}
 
-              <button
-                className={styles.pages + ' ' + styles.pages_next}
-                disabled={this.state.page === 5}
-                onClick={e => {
-                  this.goToNext(e);
-                }}
-              >
-                NEXT
-              </button>
-            </div>
-          </Fragment>
-        )}
+          <div className={styles.button_container}>
+            <button
+              className={styles.pages + ' ' + styles.pages_prev}
+              disabled={this.state.page === 1}
+              onClick={e => {
+                this.goToPrev(e);
+              }}
+            >
+              PREV
+            </button>
 
-        {this.state.limit === 5 && (
-          <Fragment>
-            <Grid5
-              goToNext={this.goToNext}
-              goToPrev={this.goToPrev}
-              page={this.state.page}
-              items={this.getElementsForGrid5()}
-            />
-            <div className={styles.button_container}>
-              <button
-                className={styles.pages + ' ' + styles.pages_prev}
-                disabled={this.state.page === 1}
-                onClick={e => {
-                  this.goToPrev(e);
-                }}
-              >
-                PREV
-              </button>
-
-              <button
-                className={styles.pages + ' ' + styles.pages_next}
-                disabled={this.state.page === 12}
-                onClick={e => {
-                  this.goToNext(e);
-                }}
-              >
-                NEXT
-              </button>
-            </div>
-          </Fragment>
-        )}
+            <button
+              className={styles.pages + ' ' + styles.pages_next}
+              disabled={this.state.page === 12}
+              onClick={e => {
+                this.goToNext(e);
+              }}
+            >
+              NEXT
+            </button>
+          </div>
+        </Fragment>
       </Fragment>
     );
   }

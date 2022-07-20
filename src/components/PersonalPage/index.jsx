@@ -11,9 +11,7 @@ class PersonalPage extends Component {
           <button
             type="button"
             className={styles.back}
-            onClick={() => {
-              this.getNames();
-            }}
+            onClick={()=>{this.props.onGoBack()}}
           >
             H
           </button>

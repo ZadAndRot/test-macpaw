@@ -93,6 +93,7 @@ class Gallery extends Component {
   };
 
   render() {
+    const { showElementByName } = this.props;
     return (
       <Fragment>
         <div className={styles.menu}>
@@ -101,16 +102,10 @@ class Gallery extends Component {
               type="button"
               className={styles.back}
               onClick={() => {
-                this.getElementsForGrid5();
+                this.props.onGoBack();
               }}
             ></button>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={() => {
-                this.getElementsForGrid5();
-              }}
-            >
+            <button type="button" className={styles.button}>
               GALLERY
             </button>
           </div>
@@ -149,10 +144,18 @@ class Gallery extends Component {
           </div>
           <div>
             <label className={styles.lable}>BREED</label>
-            <select className={styles.select}>
-              <option value="none">None</option>
-              <option>Abssian</option>
-              <option>Cat</option>
+            <select
+              onChange={e => {
+                showElementByName(e);
+              }}
+              className={styles.select}
+            >
+              <option value="All items">All items</option>
+              {this.props.all.map(el => (
+                <option key={el.id} value={el.id}>
+                  {el.name}
+                </option>
+              ))}
             </select>
             <label className={styles.lable}>LIMIT</label>
             <div>

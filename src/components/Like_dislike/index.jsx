@@ -34,7 +34,7 @@ class Like extends Component {
     return (
       <Fragment>
         <div className={styles.menu}>
-          <button type="button" className={styles.back}>
+          <button onClick={()=>{this.props.onGoBack()}} type="button" className={styles.back}>
             H
           </button>
           <button type="button" className={styles.button}>
