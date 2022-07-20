@@ -238,7 +238,7 @@ export class App extends Component {
           history: [
             ...prevState.history,
             {
-              id: nan,
+              id: item.id,
               text: `Image id: ${item.id} was removed from likes`,
               image: likes,
             },
@@ -250,7 +250,7 @@ export class App extends Component {
           history: [
             ...prevState.history,
             {
-              id: nan,
+              id: item.id,
               text: `Image id: ${item.id} was added to likes`,
               image: likes,
             },
