@@ -1,7 +1,6 @@
 import { Component, Fragment } from 'react';
 import styles from '../Breeds/index.module.scss';
-import Grid10 from 'components/Grids/grid10';
-import Grid5 from 'components/Grids/gtid5';
+
 
 class Breeds extends Component {
   state = {
