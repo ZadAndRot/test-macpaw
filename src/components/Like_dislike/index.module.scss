@@ -62,8 +62,73 @@ $active: #ff868e;
 .image_container {
   height: max-content;
   width: max-content;
+  position: relative;
+  overflow: hidden;
 }
 
 .image_container:hover .popup {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.popup button {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+}
+
+.popup button img {
+  width: 30px;
+  height: 30px;
+}
+
+.history_container {
+  width:calc(100%-60px) ;
+  height: 60px;
+  margin: 5px auto;
+  background: #f8f8f7;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  justify-content: left;
+}
+
+.history {
+  font-family: 'Jost';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+margin-left: 20px;
+/* identical to box height, or 150% */
+
+
+color: #8C8C8C;
+
+}
+
+.history span{
+  font-weight: bold;
+  color: black;
+}
+
+.time {
+  width: 41px;
+  background-color: white;
+  color: black;
+  padding: 3px 10px;
+  text-align: center;
+  font-family: 'Jost';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
 }

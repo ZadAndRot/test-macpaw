@@ -2,10 +2,7 @@ import { Component } from 'react';
 import styles from '../Gallery/index.module.scss';
 import { Fragment } from 'react';
 import Loader from 'components/Loader';
-
-
-
-
+import { nanoid } from 'nanoid';
 
 class Gallery extends Component {
   state = {
@@ -14,8 +11,6 @@ class Gallery extends Component {
     limit: 5,
   };
 
-
-
   async componentDidMount() {
     fetch(
       `https://api.thecatapi.com/v1/breeds?&limit=${this.state.limit}&page=1`
@@ -23,7 +18,10 @@ class Gallery extends Component {
       res
         .json()
         .then(json => {
-          this.setState({ status: true, items: json });
+          this.setState(prev => ({
+            status: true,
+            items: [...this.props.uploadedFiles, ...json],
+          }));
           console.log(json);
         })
         .finally(this.setState({ status: false }))
@@ -35,9 +33,9 @@ class Gallery extends Component {
       this.setState(prev => ({ limit: 5 }));
     } else if (e.target.value === '10') {
       this.setState(prev => ({ limit: 10 }));
-    } else if (e.target.value === '10') {
-      this.setState(prev => ({ limit: 15 }));
     } else if (e.target.value === '15') {
+      this.setState(prev => ({ limit: 15 }));
+    } else if (e.target.value === '20') {
       this.setState(prev => ({ limit: 20 }));
     }
   };
@@ -49,12 +47,18 @@ class Gallery extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.limit !== this.state.limit) {
       fetch(
-        `https://api.thecatapi.com/v1/breeds?&limit=${this.state.limit}&page=1&per_page=20`
+        `https://api.thecatapi.com/v1/breeds?&limit=${
+          this.props.uploadedFiles.length < this.state.limit &&
+          this.state.limit - this.props.uploadedFiles.length
+        }`
       ).then(res =>
         res
           .json()
           .then(json => {
-            this.setState({ status: true, items: json });
+            this.setState(prev => ({
+              status: true,
+              items: [...this.props.uploadedFiles, ...json],
+            }));
             console.log(json);
           })
           .finally(this.setState({ status: false }))
@@ -82,7 +86,7 @@ class Gallery extends Component {
     } else if (e.target.value === 'random') {
       this.setState({
         items: this.state.items.sort(function (a, b) {
-          return Math.random() <=0.5 ? -1 : 1;
+          return Math.random() <= 0.5 ? -1 : 1;
         }),
       });
     }
@@ -91,7 +95,6 @@ class Gallery extends Component {
   render() {
     return (
       <Fragment>
-        
         <div className={styles.menu}>
           <div className={styles.left}>
             <button
@@ -111,13 +114,23 @@ class Gallery extends Component {
               GALLERY
             </button>
           </div>
-          <button onClick={()=>{this.props.open_modal()}} type="button" className={styles.upload}>
+          <button
+            onClick={() => {
+              this.props.open_modal();
+            }}
+            type="button"
+            className={styles.upload}
+          >
             Upload
           </button>
         </div>
         <form className={styles.form}>
           <div>
+            <label for="select" className={styles.lable}>
+              ORDER
+            </label>
             <select
+              id="select"
               onChange={e => {
                 this.handleOrder(e);
               }}
@@ -127,6 +140,7 @@ class Gallery extends Component {
               <option value="desc">Desc</option>
               <option value="asc">Asc</option>
             </select>
+            <label className={styles.lable}>TYPE</label>
             <select className={styles.select}>
               <option value="all">All</option>
               <option value="static">Static</option>
@@ -134,11 +148,13 @@ class Gallery extends Component {
             </select>
           </div>
           <div>
+            <label className={styles.lable}>BREED</label>
             <select className={styles.select}>
               <option value="none">None</option>
               <option>Abssian</option>
               <option>Cat</option>
             </select>
+            <label className={styles.lable}>LIMIT</label>
             <div>
               <select
                 onChange={e => {
@@ -157,9 +173,22 @@ class Gallery extends Component {
         </form>
         <div className={styles.gallery}>
           {this.state.items.map(item => (
-            <img className={styles.image} src={item.image.url} alt={item.id} />
+            <div className={styles.image_container}>
+              <div className={styles.hovered}>
+                <button
+                  onClick={() => {
+                    this.props.addHistory('likes', item, false);
+                  }}
+                ></button>
+              </div>
+              <img
+                key={nanoid()}
+                className={styles.image}
+                src={item.image.url}
+                alt={item.id}
+              />
+            </div>
           ))}
-         
         </div>
         {this.state.status === false && <Loader />}
         <button
@@ -170,7 +199,6 @@ class Gallery extends Component {
         >
           Upload photo
         </button>
-        
       </Fragment>
     );
   }

@@ -5,7 +5,7 @@ import Breeds from './Pages/Breeds';
 import PropTypes from 'prop-types';
 import RightDefaulf from 'components/Starting';
 import Like from 'components/Like_dislike';
-
+import SearchResults from 'components/SearchResults';
 import VotingPage from './Voting_page';
 import PersonalPage from 'components/PersonalPage';
 import Gallery from './Gallery';
@@ -16,6 +16,8 @@ class Voting extends Component {
 
   render() {
     const {
+      status,
+      uploadedFiles,
       page_id,
       person,
       addHistory,
@@ -26,15 +28,20 @@ class Voting extends Component {
       likes,
       dislikes,
       showElementByName,
-      open_modal
+      open_modal,
+      onInputClicked,
+      searched
     } = this.props;
     return (
       <Fragment>
         <div className={styles.right}>
-          <Search showFavorities={showFavorities} />
+          <Search showFavorities={showFavorities} onInputClicked={onInputClicked}  />
           <div className={styles.page_voting}>
             {page_id === 'breeds' && (
-              <Breeds showElementByName={showElementByName} items={items} />
+              <Breeds status={status} showElementByName={showElementByName} items={items} />
+            )}
+            {page_id === 'search' && (
+              <SearchResults searched={searched} />
             )}
             {page_id === 'voting' && (
               <VotingPage
@@ -43,17 +50,15 @@ class Voting extends Component {
                 addHistory={addHistory}
               />
             )}
-            {page_id === 'gallery' && <Gallery open_modal={open_modal}/>}
+            {page_id === 'gallery' && <Gallery addHistory={addHistory} uploadedFiles={uploadedFiles} open_modal={open_modal}/>}
             {page_id === 'gefault' && <RightDefaulf />}
             {page_id === 'favourite' && (
-              <Like title="FAVOURITES" items={favourities} />
+              <Like addHistory={addHistory} text="favorities" title="FAVOURITES" items={favourities} />
             )}
-            {page_id === 'likes' && <Like title="LIKES" items={likes} />}
-            {page_id === 'favorities' && (
-              <Like title="favorities" items={dislikes} />
-            )}
+            {page_id === 'likes' && <Like addHistory={addHistory} text="likes" title="LIKES" items={likes} />}
+           
             {page_id === 'dislikes' && (
-              <Like title="DISLIKES" items={dislikes} />
+              <Like addHistory={addHistory}  text="dislikes" title="DISLIKES" items={dislikes} />
             )}
             {page_id === 'personal' && <PersonalPage person={person} />}
           </div>

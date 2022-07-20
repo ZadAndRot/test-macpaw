@@ -27,17 +27,36 @@ export class App extends Component {
     liked: [],
     disliked: [],
     modal_status: false,
+    uploadedFiles: [],
+    searched: [],
+  };
+
+  handleInputClicked = (value, e) => {
+    e.preventDefault();
+    this.setState({
+      searched: this.state.items.filter(el => el.name === value),
+    });
+    console.log(this.state.searched);
+  };
+
+  setUploadedFiles = ({ id, url, name }) => {
+    this.setState(prev => ({
+      uploadedFiles: [
+        ...prev.uploadedFiles,
+        { id: id, image: { url: url }, name: name },
+      ],
+    }));
+
+    console.log(this.state.uploadedFiles);
   };
 
   open_modal = () => {
     this.setState({ modal_status: true });
   };
 
-  close_modal=()=>{
-    this.setState({modal_status: false})
-  }
-
-  back_to_breeds = () => {};
+  close_modal = () => {
+    this.setState({ modal_status: false });
+  };
 
   showElementByName = e => {
     let item = {};
@@ -59,26 +78,29 @@ export class App extends Component {
       this.setState({ page_id: 'likes' });
     } else if (text === 'dislikes') {
       this.setState({ page_id: 'dislikes' });
+    } else if (text === 'search') {
+      this.setState({ page_id: 'search' });
     } else {
       console.log('something wrong');
     }
   };
 
   async componentDidMount() {
-    fetch('https://api.thecatapi.com/v1/breeds').then(res =>
-      res.json().then(json => {
-        this.setState({ status: true, items: json });
-      })
-    );
+    fetch('https://api.thecatapi.com/v1/breeds')
+      .then(res =>
+        res.json().then(json => {
+          this.setState({ status: true, items: json });
+        })
+      )
+      .finally(this.setState({ status: false }));
 
     console.log(this.state.items);
   }
 
-  addHistory = (text, item) => {
-    console.log(text);
+  addHistory = (text, item, only) => {
     let nan = nanoid();
 
-    if (text === 'favorities') {
+    if (text === 'favorities' && only === true) {
       this.setState(prevState => ({
         history: [
           ...prevState.history,
@@ -93,7 +115,36 @@ export class App extends Component {
           { id: item.id, breed: item.name, url: item.image.url },
         ],
       }));
-    } else if (text === 'likes') {
+    } else if (text === 'favorities' && only === false) {
+      if (this.state.favorite.some(el => el.id === item.id)) {
+        this.setState(prevState => ({
+          history: [
+            ...prevState.history,
+            {
+              id: nan,
+              text: `Image id: ${item.id} was removed from favorities`,
+              image: favorite,
+            },
+          ],
+          favorite: [...prevState.favorite.filter(el => el.id !== item.id)],
+        }));
+      } else {
+        this.setState(prevState => ({
+          history: [
+            ...prevState.history,
+            {
+              id: nan,
+              text: `Image id: ${item.id} was added to favorities`,
+              image: favorite,
+            },
+          ],
+          favorite: [
+            ...prevState.favorite,
+            { id: item.id, breed: item.name, url: item.image.url },
+          ],
+        }));
+      }
+    } else if (text === 'likes' && only === true) {
       this.setState(prevState => ({
         history: [
           ...prevState.history,
@@ -104,11 +155,40 @@ export class App extends Component {
           },
         ],
         liked: [
-          ...prevState.favorite,
+          ...prevState.liked,
           { id: item.id, breed: item.name, url: item.image.url },
         ],
       }));
-    } else if (text === 'dislikes') {
+    } else if (text === 'likes' && only === false) {
+      if (this.state.liked.some(el => el.id === item.id)) {
+        this.setState(prevState => ({
+          history: [
+            ...prevState.history,
+            {
+              id: nan,
+              text: `Image id: ${item.id} was removed from likes`,
+              image: likes,
+            },
+          ],
+          liked: [...prevState.liked.filter(el => el.id !== item.id)],
+        }));
+      } else {
+        this.setState(prevState => ({
+          history: [
+            ...prevState.history,
+            {
+              id: nan,
+              text: `Image id: ${item.id} was added to likes`,
+              image: likes,
+            },
+          ],
+          liked: [
+            ...prevState.liked,
+            { id: item.id, breed: item.name, url: item.image.url },
+          ],
+        }));
+      }
+    } else if (text === 'dislikes' && only === true) {
       this.setState(prevState => ({
         history: [
           ...prevState.history,
@@ -119,108 +199,68 @@ export class App extends Component {
           },
         ],
         disliked: [
-          ...prevState.favorite,
+          ...prevState.disliked,
           { id: item.id, breed: item.name, url: item.image.url },
         ],
       }));
+    } else if (text === 'dislikes' && only === false) {
+      if (this.state.disliked.some(el => el.id === item.id)) {
+        this.setState(prevState => ({
+          history: [
+            ...prevState.history,
+            {
+              id: nan,
+              text: `Image id: ${item.id} was removed from dislikes`,
+              image: dislikes,
+            },
+          ],
+          disliked: [...prevState.disliked.filter(el => el.id !== item.id)],
+        }));
+      } else {
+        this.setState(prevState => ({
+          history: [
+            ...prevState.history,
+            {
+              id: nan,
+              text: `Image id: ${item.id} was added to dislikes`,
+              image: dislikes,
+            },
+          ],
+          disliked: [
+            ...prevState.disliked,
+            { id: item.id, breed: item.name, url: item.image.url },
+          ],
+        }));
+      }
     }
 
     console.log(this.state.history);
   };
 
-  // here is a part with pages
-  //
-  //-----------------------------------------------------------
-  //------------------------------------------------------------
+  voting_clicked_on = (e, page) => {
+    let active = document.getElementsByClassName(styles.flex_item_active);
+    console.log(active);
+    if (e.currentTarget === active[0]) {
+      e.currentTarget.classList.remove(styles.flex_item_active);
+      this.setState({ page_id: 'default' });
+    } else {
+      active[0] && active[0].classList.remove(styles.flex_item_active);
+      e.currentTarget.classList.add(styles.flex_item_active);
 
-  voting_clicked = async (class_div, class_btn, e) => {
-    let elem = e.currentTarget.children[0];
-    let el = document.getElementsByClassName(class_div)[0];
-    let btn = document.getElementsByClassName(class_btn)[0];
-    console.log(el, btn);
-
-    let vote_div = document.getElementsByClassName(styles.vote)[0];
-
-    let pet_div = document.getElementsByClassName(styles.pet)[0];
-    let images_div = document.getElementsByClassName(styles.images)[0];
-
-    let vote_button = document.getElementsByClassName(styles.button_voting)[0];
-    let pet_button = document.getElementsByClassName(styles.button_voting)[1];
-    let images_button = document.getElementsByClassName(
-      styles.button_voting
-    )[2];
-
-    console.log(vote_button);
-
-    console.log(pet_button);
-
-    console.log(images_button);
-
-    if (elem.classList.contains(styles.pet)) {
-      if (elem.classList.contains(styles.flex_item_active)) {
-        elem.classList.remove(styles.flex_item_active);
-        btn.classList.remove(styles.btn_active);
-
-        vote_div.classList.remove(styles.flex_item_active);
-        vote_button.classList.remove(styles.btn_active);
-        images_div.classList.remove(styles.flex_item_active);
-        images_button.classList.remove(styles.btn_active);
-        this.setState({ page_id: 'default' });
-        console.log('not active');
-      } else {
-        elem.classList.add(styles.flex_item_active);
-        btn.classList.add(styles.btn_active);
-        this.setState({ page_id: 'breeds' });
-        console.log('active');
-      }
-    } else if (elem.classList.contains(styles.vote)) {
-      if (elem.classList.contains(styles.flex_item_active)) {
-        elem.classList.remove(styles.flex_item_active);
-        btn.classList.remove(styles.btn_active);
-
-        pet_div.classList.remove(styles.flex_item_active);
-        pet_button.classList.remove(styles.btn_active);
-        images_div.classList.remove(styles.flex_item_active);
-        images_button.classList.remove(styles.btn_active);
-        this.setState({ page_id: 'default' });
-        console.log('not active');
-      } else {
-        console.log('not');
-        elem.classList.add(styles.flex_item_active);
-        btn.classList.add(styles.btn_active);
-        this.setState({ page_id: 'voting' });
-        console.log('active');
-      }
-    } else if (elem.classList.contains(styles.images)) {
-      if (elem.classList.contains(styles.flex_item_active)) {
-        elem.classList.remove(styles.flex_item_active);
-        btn.classList.remove(styles.btn_active);
-
-        vote_div.classList.remove(styles.flex_item_active);
-        vote_button.classList.remove(styles.btn_active);
-        pet_div.classList.remove(styles.flex_item_active);
-        pet_button.classList.remove(styles.btn_active);
-        this.setState({ page_id: 'default' });
-        console.log('not active');
-      } else {
-        elem.classList.add(styles.flex_item_active);
-        btn.classList.add(styles.btn_active);
-        this.setState({ page_id: 'gallery' });
-        console.log('active');
-      }
+      this.setState({ page_id: page });
     }
   };
 
   render() {
-    // var { item, status } = this.state;
-
     return (
       <div className={styles.app}>
-        {this.state.modal_status && <Upload close_modal={this.close_modal} />}
+        {this.state.modal_status && (
+          <Upload
+            setUploadedFiles={this.setUploadedFiles}
+            close_modal={this.close_modal}
+          />
+        )}
 
-        {/* <button type='button' onClick={this.fn}>click</button>
-        
-        {this.state.status===true?<div>{this.state.item.map((el)=> el.id)}</div>:"Loading...."} */}
         <div className={styles.left}>
           <img alt="" className={styles.logo} src={logo} />
           <p className={styles.hello}>Hi intern!</p>
@@ -230,7 +270,7 @@ export class App extends Component {
           <div className={styles.container}>
             <div
               onClick={e => {
-                this.voting_clicked(styles.vote, styles.btn_voting, e);
+                this.voting_clicked_on(e, 'voting');
               }}
             >
               <div className={styles.flex_item + ' ' + styles.vote}>
@@ -244,7 +284,7 @@ export class App extends Component {
 
             <div
               onClick={e => {
-                this.voting_clicked(styles.pet, styles.btn_breeds, e);
+                this.voting_clicked_on(e, 'breeds');
               }}
             >
               <div id="pet" className={styles.flex_item + ' ' + styles.pet}>
@@ -258,7 +298,7 @@ export class App extends Component {
 
             <div
               onClick={e => {
-                this.voting_clicked(styles.images, styles.btn_gallery, e);
+                this.voting_clicked_on(e, 'gallery');
               }}
             >
               <div
@@ -284,6 +324,9 @@ export class App extends Component {
           <RightDefaulf />
         ) : (
           <Voting
+            searched={this.state.searched}
+            onInputClicked={this.handleInputClicked}
+            uploadedFiles={this.state.uploadedFiles}
             showElementByName={this.showElementByName}
             person={this.state.person}
             showFavorities={this.showFavorities}
@@ -295,6 +338,7 @@ export class App extends Component {
             addHistory={this.addHistory}
             page_id={this.state.page_id}
             open_modal={this.open_modal}
+            status={this.state.status}
           />
         )}
       </div>

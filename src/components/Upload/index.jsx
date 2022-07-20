@@ -1,5 +1,6 @@
 import { Component, Fragment } from 'react';
 import styles from '../Upload/index.module.scss';
+import { nanoid } from 'nanoid';
 
 class Upload extends Component {
   state = {
@@ -14,17 +15,22 @@ class Upload extends Component {
     });
   }
 
-
   handleGetFile = e => {
     let file = e.target.files[0];
     this.setState({ images: URL.createObjectURL(file) });
 
     file.isUploadung = true;
-    this.setState(prev => ({ files: [...prev.files, file] }));
+    this.setState({ files: file });
+  };
 
-    const formData = new FormData();
-    formData.append(file.name, file, file.name);
-
+  handleSentFile = e => {
+    e.preventDefault();
+    this.props.setUploadedFiles({
+      id: nanoid(),
+      url: this.state.images,
+      name: this.state.files.name,
+    });
+    this.setState({ images: null, files: null });
   };
 
   render() {
@@ -32,12 +38,22 @@ class Upload extends Component {
       <Fragment>
         <div className={styles.modal_back}>
           <div className={styles.modal_body}>
-            <button onClick={()=>{this.props.close_modal()}} className={styles.close_modal}></button>
+            <button
+              onClick={() => {
+                this.props.close_modal();
+              }}
+              className={styles.close_modal}
+            ></button>
             <p className={styles.h1}>Upload a .jpg or .png Cat Image</p>
             <p className={styles.h2}>
               Any uploads must comply with the{' '}
-              <span style={{ color: 'red' }}>upload guidelines</span> or face
-              deletion.
+              <a
+                href="https://thecatapi.com/privacy"
+                style={{ color: 'red', textDecoration: 'none' }}
+              >
+                upload guidelines
+              </a>{' '}
+              or face deletion.
             </p>
             {this.state.images}
             <form className={styles.desc}>
@@ -61,6 +77,17 @@ class Upload extends Component {
                 <b style={{ color: 'black' }}> Click here</b> to upload
               </p>
             </form>
+            {this.state.images && this.state.files ? (
+              <button
+                type="button"
+                onClick={e => {
+                  this.handleSentFile(e);
+                }}
+                className={styles.upload_photo}
+              >
+                UPLOAD PHOTO
+              </button>
+            ) : null}
             <p className={styles.h2}>No file selected</p>
           </div>
         </div>

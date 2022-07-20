@@ -16,8 +16,8 @@ class Breeds extends Component {
       this.setState({ limit: 5, page: 1 });
     } else if (e.target.value === '10') {
       this.setState({ limit: 10, page: 1 });
-    } 
-  }
+    }
+  };
 
   goToPrev = () => {
     this.setState(prev => ({ page: prev.page - 1 }));
@@ -40,7 +40,7 @@ class Breeds extends Component {
     }
     grouped_array.push(inside_array);
     console.log(grouped_array);
-    return grouped_array
+    return grouped_array;
   };
   render() {
     const { showElementByName } = this.props;
@@ -164,7 +164,7 @@ class Breeds extends Component {
           </Fragment>
         )}
       </Fragment>
-    )
+    );
   }
 }
 

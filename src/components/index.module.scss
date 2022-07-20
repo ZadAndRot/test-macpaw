@@ -12,9 +12,15 @@ $active: #ff868e;
   display: flex;
   justify-content: space-between;
 }
+.app::-webkit-scrollbar {
+  display: none;
+}
+.app {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 .left {
-  
   width: max-content;
   height: 544px;
   // left: 100px;
@@ -96,10 +102,7 @@ $active: #ff868e;
   background-color: $hover;
 }
 
-.btn_active {
-  background-color: $active;
-  color: white;
-}
+
 
 .container {
   display: flex;
@@ -136,9 +139,16 @@ $active: #ff868e;
   border: 4px solid #ffffff;
 }
 
-.flex_item_active {
+
+.flex_item_active div {
   border: 4px solid #fbe0dc;
 }
+
+.flex_item_active button{
+  background-color: $active;
+  color: white;
+}
+
 
 .img {
   width: 117px;

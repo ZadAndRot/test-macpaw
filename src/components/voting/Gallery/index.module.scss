@@ -77,13 +77,83 @@ $active: #ff868e;
 }
 
 .gallery {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
-.image {
-  width: 300px;
+.lable{
+  font-family: 'Jost';
+
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 18px;
+/* identical to box height, or 180% */
+position: relative;
+
+
+color: #8C8C8C;
+
+}
+
+.image_container {
+  width: 200px;
+  height: 250px;
   border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  
+}
+
+.image {
+  width: auto;
+  height: 100%;  
+}
+
+.hovered {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 134, 142, 0.6);
+}
+
+.hovered button {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  background-image: url(../../images/heart_default.svg);
+  background-repeat: no-repeat;
+  border: none;
+  background-position: center;
+}
+
+.hovered button:hover {
+  background-color: $hover;
+}
+
+.hovered button:active {
+  background-color: $active;
+  background-image: url(../../images/heart_active.svg);
+  background-repeat: no-repeat;
+
+  background-position: center;
+}
+
+.image_container:hover .hovered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .more {
@@ -97,16 +167,17 @@ $active: #ff868e;
 
 .form {
   margin-top: 5px;
-  width: 640px;
+  width:calc(100%-60px);
   height: max-content;
   background-color: $bgcolor;
   border-radius: 20px;
   display: flex;
   flex-wrap: wrap;
-  padding: 30px;
+  
+  padding-left: 30px;
+  padding-top: 12px;
 
-  padding-right: 0px;
-  padding-bottom: 0px;
+  
   justify-content: space-between;
   box-sizing: border-box;
 }
@@ -127,7 +198,7 @@ $active: #ff868e;
 
   border: none;
   display: block;
-  margin-top: 30px;
+  
 }
 
 .select:hover {
@@ -149,8 +220,10 @@ $active: #ff868e;
 form div {
   padding-left: 30px;
   margin-left: -30px;
-  margin-top: -30px;
+  
+  
   width: 50%;
+  height: max-content
 }
 
 form div div {
@@ -158,7 +231,7 @@ form div div {
   justify-content: space-between;
   width: 275px;
   height: 40px;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 form div div .select {
@@ -169,7 +242,6 @@ form div div .select {
 
 .scroll:hover {
   background-color: $hover;
- 
 }
 
 .scroll:active {
