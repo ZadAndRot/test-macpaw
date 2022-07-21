@@ -112,84 +112,6 @@ $active: #ff868e;
   border: 2px solid #fbe0dc;
 }
 
-
-
-.item {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 250px;
-  height: 200px
-}
-.item_img {
-  width: 100%;
-  height: 100%;
-}
-
-
-.hovered_div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 134, 142, 0.6);
-  text-align: center;
-  color: white;
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  z-index: 4;
-  display: none;
-  
-
-  /* identical to box height, or 150% */
-}
-
-.hovered {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.hovered_text {
-  background: #ffffff;
-  border-radius: 10px;
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  padding: 10px;
-
-  text-align: center;
-
-  color: #ff868e;
-  margin-bottom: 15px;
-}
-
-
-.grid_container {
-  display: grid;
-  grid-template-areas:
-    'lt ct rt'
-    'lt rb rb'
-    'lb rb rb';
-  grid-gap: 10px;
-
-  padding: 10px;
-}
-.grid_container_reverse {
-  display: grid;
-  grid-template-areas:
-    'lt ct rt'
-    'lb lb rt'
-    'lb lb rb';
-  grid-gap: 10px;
-
-  padding: 10px;
-}
-
 .pages {
   align-items: center;
   padding: 12px 30px;
@@ -202,8 +124,6 @@ $active: #ff868e;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  /* identical to box height, or 133% */
-
   letter-spacing: 2px;
   color: #ff868e;
   border: none;

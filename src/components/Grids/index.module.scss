@@ -2,76 +2,195 @@ $bgcolor: #e5e5e5;
 $hover: #fbe0dc;
 $active: #ff868e;
 
-.item {
-  position: relative;
+.hovered_div button {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
   border-radius: 10px;
-  overflow: hidden;
+  background-image: url(../images/smile_default.svg);
+  background-repeat: no-repeat;
+  border: none;
+  background-position: center;
 }
+
+
+.hovered_div button:hover {
+  background-color: $hover;
+}
+
+.hovered_div button:active {
+  background-color: $active;
+  background-image: url(../images/smile_active.svg);
+  background-repeat: no-repeat;
+
+  background-position: center;
+}
+
+.hovered_btn button.like{
+  background-image: none;
+}
+
+
+
+
+
 .item_img {
-  width: 100%;
-  height: 100%;
+  position: relative;
+  
+    height: 100%;
+    width: 100%;
 }
 
 .item0 {
+  border-radius: 10px;
+
   position: relative;
   grid-area: rt;
   width: 200px;
+  overflow: hidden;
   height: 140px;
 }
 .item1 {
+  border-radius: 10px;
   position: relative;
   grid-area: ct;
   width: 200px;
+  overflow: hidden;
   height: 140px;
 }
 .item2 {
+  border-radius: 10px;
   position: relative;
   grid-area: lt;
   width: 200px;
   height: 300px;
+  overflow: hidden;
 }
 .item3 {
+  border-radius: 10px;
   position: relative;
   grid-area: rb;
   width: 420px;
   height: 300px;
+  overflow: hidden;
 }
 .item4 {
+  border-radius: 10px;
   position: relative;
   grid-area: lb;
   width: 200px;
+  height: 140px;
+  overflow: hidden;
+}
+
+.item5 {
+  border-radius: 10px;
+  position: relative;
+  grid-area: llt;
+  width: 200px;
+  height: 140px;
+  overflow: hidden;
+}
+.item6 {
+  border-radius: 10px;
+  position: relative;
+  grid-area: cct;
+  overflow: hidden;
+  width: 200px;
+  height: 140px;
+}
+.item7 {border-radius: 10px;
+  position: relative;
+  grid-area: rrt;
+  width: 200px;
+  overflow: hidden;
+  height: 300px;
+}
+.item8 {border-radius: 10px;
+  position: relative;
+  grid-area: llb;
+  width: 420px;
+  overflow: hidden;
+  height: 300px;
+}
+.item9 {border-radius: 10px;
+  position: relative;
+  grid-area: rrb;
+  width: 200px;
+  overflow: hidden;
   height: 140px;
 }
 
-.item0_rev {
+.item10 {border-radius: 10px;
   position: relative;
-  grid-area: rt;
+  grid-area: rtt;
+  width: 200px;
+  height: 140px;
+  overflow: hidden;
+}
+.item11 {border-radius: 10px;
+  position: relative;
+  grid-area: ctt;
+  width: 200px;
+  height: 140px;
+  overflow: hidden;
+}
+.item12 {border-radius: 10px;
+  position: relative;
+  grid-area: ltt;
   width: 200px;
   height: 300px;
+  overflow: hidden;
 }
-.item1_rev {
+.item13 {border-radius: 10px;
   position: relative;
-  grid-area: ct;
-  width: 200px;
-  height: 140px;
-}
-.item2_rev {
-  position: relative;
-  grid-area: lt;
-  width: 200px;
-  height: 140px;
-}
-.item3_rev {
-  position: relative;
-  grid-area: rb;
-  width: 200px;
-  height: 140px;
-}
-.item4_rev {
-  position: relative;
-  grid-area: lb;
+  grid-area: rbb;
   width: 420px;
   height: 300px;
+  overflow: hidden;
+}
+.item14 {border-radius: 10px;
+  position: relative;
+  grid-area: lbb;
+  width: 200px;
+  height: 140px;
+  overflow: hidden;
+}
+
+.item15 {border-radius: 10px;
+  position: relative;
+  grid-area: lltt;
+  width: 200px;
+  height: 140px;
+  overflow: hidden;
+}
+.item16 {border-radius: 10px;
+  position: relative;
+  grid-area: cctt;
+  width: 200px;
+  height: 140px;
+  overflow: hidden;
+}
+.item17 {border-radius: 10px;
+  position: relative;
+  grid-area: rrtt;
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+.item18 {border-radius: 10px;
+  position: relative;
+  grid-area: llbb;
+  width: 420px;
+  height: 300px;
+  overflow: hidden;
+}
+.item19 {border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  grid-area: rrbb;
+  width: 200px;
+  height: 140px;
 }
 
 .grid_container {
@@ -79,26 +198,23 @@ $active: #ff868e;
   grid-template-areas:
     'lt ct rt'
     'lt rb rb'
-    'lb rb rb';
+    'lb rb rb'
+    'llt cct rrt'
+    'llb llb rrt'
+    'llb llb rrb'
+    'ltt ctt rtt'
+    'ltt rbb rbb'
+    'lbb rbb rbb'
+    'lltt cctt rrtt'
+    'llbb llbb rrtt'
+    'llbb llbb rrbb';
   grid-gap: 10px;
-
-  padding: 10px;
-}
-.grid_container_reverse {
-  display: grid;
-  grid-template-areas:
-    'lt ct rt'
-    'lb lb rt'
-    'lb lb rb';
-  grid-gap: 10px;
-
   padding: 10px;
 }
 
 .hovered_div {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  
   background-color: rgba(255, 134, 142, 0.6);
   text-align: center;
   color: white;
@@ -109,16 +225,11 @@ $active: #ff868e;
   line-height: 24px;
   z-index: 4;
   display: none;
-  
-
-  /* identical to box height, or 150% */
 }
 
-.hovered {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
+
+
+
 
 .hovered_text {
   background: #ffffff;
@@ -129,9 +240,33 @@ $active: #ff868e;
   font-size: 16px;
   line-height: 24px;
   padding: 10px;
-
   text-align: center;
-
   color: #ff868e;
   margin-bottom: 15px;
 }
+
+
+.hovered {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.hovered_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.hovered_div .like{
+  background-image: none;
+}
+
+
+
+

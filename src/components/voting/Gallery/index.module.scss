@@ -127,28 +127,6 @@ color: #8C8C8C;
   background-color: rgba(255, 134, 142, 0.6);
 }
 
-.hovered button {
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  border-radius: 10px;
-  background-image: url(../../images/heart_default.svg);
-  background-repeat: no-repeat;
-  border: none;
-  background-position: center;
-}
-
-.hovered button:hover {
-  background-color: $hover;
-}
-
-.hovered button:active {
-  background-color: $active;
-  background-image: url(../../images/heart_active.svg);
-  background-repeat: no-repeat;
-
-  background-position: center;
-}
 
 .image_container:hover .hovered {
   display: flex;

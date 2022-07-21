@@ -2,7 +2,7 @@ import { Component } from 'react';
 import styles from '../Gallery/index.module.scss';
 import { Fragment } from 'react';
 import Loader from 'components/Loader';
-import { nanoid } from 'nanoid';
+import Grid5 from 'components/Grids/gtid5';
 
 class Gallery extends Component {
   state = {
@@ -150,7 +150,7 @@ class Gallery extends Component {
               }}
               className={styles.select}
             >
-              <option value="All items">All items</option>
+              <option value="all">All items</option>
               {this.props.all.map(el => (
                 <option key={el.id} value={el.id}>
                   {el.name}
@@ -175,23 +175,11 @@ class Gallery extends Component {
           </div>
         </form>
         <div className={styles.gallery}>
-          {this.state.items.map(item => (
-            <div className={styles.image_container}>
-              <div className={styles.hovered}>
-                <button
-                  onClick={() => {
-                    this.props.addHistory('likes', item, false);
-                  }}
-                ></button>
-              </div>
-              <img
-                key={nanoid()}
-                className={styles.image}
-                src={item.image.url}
-                alt={item.id}
-              />
-            </div>
-          ))}
+          <Grid5
+            addHistory={this.props.addHistory}
+            items={this.state.items}
+            page="gallery"
+          />
         </div>
         {this.state.status === false && <Loader />}
         <button

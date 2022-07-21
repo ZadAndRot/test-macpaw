@@ -1,10 +1,11 @@
 import { Component, Fragment } from 'react';
 import styles from '../Breeds/index.module.scss';
-
+import Grid5 from 'components/Grids/gtid5';
+import Loader from 'components/Loader';
 
 class Breeds extends Component {
   state = {
-    page: 1,
+    page: 0,
     prevStatus: false,
     nextStatus: false,
     limit: 5,
@@ -21,13 +22,7 @@ class Breeds extends Component {
       this.props.updateLimit(20);
     }
   };
-  hover = e => {
-    e.currentTarget.children[0].classList.add(styles.hovered);
-  };
 
-  leave = e => {
-    e.currentTarget.children[0].classList.remove(styles.hovered);
-  };
   goToPrev = () => {
     this.props.updatePage(-1);
   };
@@ -95,34 +90,13 @@ class Breeds extends Component {
         </div>
 
         <Fragment>
-          {this.props.items.map(el =>
-            el.image.url ? (
-              <div
-                onMouseOver={e => {
-                  this.hover(e);
-                }}
-                onMouseLeave={e => {
-                  this.leave(e);
-                }}
-                key={this.props.items.indexOf(el)}
-                className={styles.item}
-              >
-                <div className={styles.hovered_div}>
-                  <span className={styles.hovered_text}>{el.name}</span>
-                </div>
-                <img
-                  className={styles.item_img}
-                  src={el.image.url}
-                  alt="hello"
-                />
-              </div>
-            ) : null
-          )}
+          <Grid5 page="breeds" items={this.props.items} />
+          {this.props.status===false&&<Loader/>}
 
           <div className={styles.button_container}>
             <button
               className={styles.pages + ' ' + styles.pages_prev}
-              disabled={this.state.page === 1}
+              disabled={this.props.page === 0}
               onClick={e => {
                 this.goToPrev(e);
               }}
@@ -132,9 +106,10 @@ class Breeds extends Component {
 
             <button
               className={styles.pages + ' ' + styles.pages_next}
-              disabled={this.state.page === 12}
+              disabled={!this.props.items===[]}
               onClick={e => {
                 this.goToNext(e);
+                
               }}
             >
               NEXT

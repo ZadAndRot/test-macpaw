@@ -16,6 +16,7 @@ class Voting extends Component {
 
   render() {
     const {
+      page,
       onGoBack,
       all,
       updatePage,
@@ -35,38 +36,82 @@ class Voting extends Component {
       showElementByName,
       open_modal,
       onInputClicked,
-      searched
+      searched,
     } = this.props;
     return (
       <Fragment>
         <div className={styles.right}>
-          <Search showFavorities={showFavorities} onInputClicked={onInputClicked}  />
+          <Search
+            showFavorities={showFavorities}
+            onInputClicked={onInputClicked}
+          />
           <div className={styles.page_voting}>
             {page_id === 'breeds' && (
-              <Breeds onGoBack={onGoBack} all={all} updateLimit={updateLimit} updatePage={updatePage} handleOrderItems={handleOrderItems} status={status} showElementByName={showElementByName} items={items} />
+              <Breeds
+                onGoBack={onGoBack}
+                all={all}
+                updateLimit={updateLimit}
+                updatePage={updatePage}
+                handleOrderItems={handleOrderItems}
+                status={status}
+                showElementByName={showElementByName}
+                items={items}
+                page={page}
+              />
             )}
             {page_id === 'search' && (
               <SearchResults onGoBack={onGoBack} searched={searched} />
             )}
             {page_id === 'voting' && (
               <VotingPage
-              onGoBack={onGoBack}
+                onGoBack={onGoBack}
                 history={history}
                 items={all}
                 addHistory={addHistory}
               />
             )}
-            {page_id === 'gallery' && <Gallery onGoBack={onGoBack} showElementByName={showElementByName} all={all} addHistory={addHistory} uploadedFiles={uploadedFiles} open_modal={open_modal}/>}
+            {page_id === 'gallery' && (
+              <Gallery
+                onGoBack={onGoBack}
+                showElementByName={showElementByName}
+                all={all}
+                addHistory={addHistory}
+                uploadedFiles={uploadedFiles}
+                open_modal={open_modal}
+              />
+            )}
             {page_id === 'gefault' && <RightDefaulf />}
             {page_id === 'favourite' && (
-              <Like onGoBack={onGoBack} addHistory={addHistory} text="favorities" title="FAVOURITES" items={favourities} />
+              <Like
+                onGoBack={onGoBack}
+                addHistory={addHistory}
+                text="favorities"
+                title="FAVOURITES"
+                items={favourities}
+              />
             )}
-            {page_id === 'likes' && <Like onGoBack={onGoBack} addHistory={addHistory} text="likes" title="LIKES" items={likes} />}
-           
+            {page_id === 'likes' && (
+              <Like
+                onGoBack={onGoBack}
+                addHistory={addHistory}
+                text="likes"
+                title="LIKES"
+                items={likes}
+              />
+            )}
+
             {page_id === 'dislikes' && (
-              <Like onGoBack={onGoBack} addHistory={addHistory}  text="dislikes" title="DISLIKES" items={dislikes} />
+              <Like
+                onGoBack={onGoBack}
+                addHistory={addHistory}
+                text="dislikes"
+                title="DISLIKES"
+                items={dislikes}
+              />
             )}
-            {page_id === 'personal' && <PersonalPage onGoBack={onGoBack} person={person} />}
+            {page_id === 'personal' && (
+              <PersonalPage onGoBack={onGoBack} person={person} />
+            )}
           </div>
         </div>
       </Fragment>

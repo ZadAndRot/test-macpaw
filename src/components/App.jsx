@@ -20,8 +20,8 @@ export class App extends Component {
     items: [],
     person: {},
     limit: 5,
-    page: 0,
-    path: ["default"],
+    page: 1,
+    path: ['default'],
     history: [
       { id: 'id-1', text: 'Cat was added to favorities', image: favorite },
       { id: 'id-2', text: 'Cat was added to favorities', image: favorite },
@@ -94,11 +94,14 @@ export class App extends Component {
     for (let i = 0; i < this.state.all.length; i++) {
       if (this.state.all[i].id === e.target.value) {
         item = this.state.all[i];
+        this.setState({ page_id: 'personal', person: item });
+        this.setState(prev => ({ path: [...prev.path, 'personal'] }));
       }
     }
-
-    this.setState({ page_id: 'personal', person: item });
-    this.setState(prev => ({ path: [...prev.path, 'personal'] }));
+    if (e.target.value === 'all') {
+      this.setState({ page_id: 'gallery' });
+      this.setState(prev => ({ path: [...prev.path, 'gallery'] }));
+    }
   };
 
   showFavorities = text => {
@@ -129,23 +132,25 @@ export class App extends Component {
           this.setState({
             status: true,
             items: json.filter(el =>
-              Object.keys(el).some(key => key === 'image')
+              Object.keys(el).some(key => key === 'image'?1:-1)
             ),
           });
-        })
+        }).finally(this.setState({ status: false })
+        )
+
       )
-      .finally(this.setState({ status: false }));
+      
     fetch(`https://api.thecatapi.com/v1/breeds`)
       .then(res =>
         res.json().then(json => {
           this.setState({
             all: json.filter(el =>
-              Object.keys(el).some(key => key === 'image')
+              Object.keys(el).some(key => key === 'image'?1:-1)
             ),
           });
-        })
+        }).finally(this.setState({ status: false }))
       )
-      .finally(this.setState({ status: false }));
+      
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -397,6 +402,7 @@ export class App extends Component {
           <RightDefaulf />
         ) : (
           <Voting
+            page={this.state.page}
             onGoBack={this.handleGoBack}
             all={this.state.all}
             updatePage={this.updatePage}
