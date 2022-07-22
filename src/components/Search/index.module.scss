@@ -4,17 +4,15 @@
   --hover: rgba(255, 134, 142, 0.2);
   --active: #ff868e;
   --text: white;
-  --form:rgba(255, 255, 255, 0.5);
- 
+  --form: rgba(255, 255, 255, 0.5);
 }
 .app_light {
-  --form:white;
+  --form: white;
   --text: black;
   --white: #ffffff;
   --bgcolor: #e5e5e5;
   --hover: #fbe0dc;
   --active: #ff868e;
-
 }
 
 .tools {
@@ -105,10 +103,54 @@
   background-repeat: no-repeat;
 }
 
+.burger {
+  width: 40px;
+  height: 40px;
+  background-color: var(--white);
+  background-image: url(../images/burger.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  border-radius: 10px;
+}
+
 .input_container {
   height: max-content;
   width: max-content;
   position: relative;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 1462px) {
+  .search {
+    width: 250px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .burger {
+    display: block;
+    border: none;
+  }
+  .search{
+    width: 400px;
+  }
+  
+}
+@media screen and (max-width: 800px) {
+  .search{
+    width: 300px;
+  }
+}
+@media screen and (min-width: 800px) {
+  
+}
+@media screen and (max-width: 600px) {
+  .search{
+    display: none;
+  }
+  .input_container button{
+    display: none;
+  }
+  
 }

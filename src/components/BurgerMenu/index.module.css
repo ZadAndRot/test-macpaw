@@ -5,11 +5,11 @@
   --active: #ff868e;
   --text: white;
   --right: rgba(255, 255, 255, 0.1);
-  --logo: url(../components/images/logocopy.svg);
+  --logo: url(../images/logocopy.svg);
   --form: #1d1d1d;
   --gray: rgba(255, 255, 255, 0.1);
   --position: flex-start;
-  --img: url(../components/images/eye_down.svg);
+  --img: url(../images/eye_down.svg);
   --eye: rgba(255, 255, 255, 0.1);
 }
 .app_light {
@@ -18,72 +18,19 @@
   --bgcolor: #e5e5e5;
   --hover: #fbe0dc;
   --active: #ff868e;
-  --logo: url(../components/images/logo.svg);
+  --logo: url(../images/logo.svg);
   --right: #fbe0dc;
   --form: white;
   --gray: #f8f8f7;
   --position: flex-end;
-  --img: url(../components/images/eye_upp.svg);
+  --img: url(../images/eye_upp.svg);
   --eye: white;
-}
-
-.toggle {
-  width: 44px;
-  height: 24px;
-  background: rgba(255, 134, 142, 0.2);
-  border-radius: 50px;
-  display: flex;
-  margin-bottom: 90px;
-  margin-top: 30px;
-  border: none;
-  position: relative;
-  align-items: center;
-  justify-content: var(--position);
-}
-
-.eye {
-  width: 24px;
-  margin-right: 5px;
-  height: 24px;
-  background-color: var(--eye);
-  background-image: var(--img);
-  border-radius: 50%;
-  margin-bottom: 90px;
-  margin-top: 30px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.on {
-  position: absolute;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  background-color: var(--active);
-}
-
-.app {
-  /* Home */
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: var(--bgcolor);
-  overflow: auto;
-  display: flex;
-  justify-content: space-between;
-}
-.app::-webkit-scrollbar {
-  display: none;
-}
-.app {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
 .left {
   width: max-content;
   height: 544px;
-  // left: 100px;
+  left: 100px;
   top: 30px;
   border-radius: 20px;
   margin-left: 139px;
@@ -103,33 +50,6 @@
   line-height: 29px;
   /* identical to box height */
   color: var(--text);
-}
-
-.hello {
-  /* Hi intern! */
-  width: 184px;
-  height: 58px;
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 44px;
-  line-height: 58px;
-  /* identical to box height, or 132% */
-  color: var(--text);
-}
-
-.welcome {
-  /* Welcome to MI 2022 Front-end test */
-  width: 300px;
-  height: 29px;
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 29px;
-  /* identical to box height */
-  color: #8c8c8c;
-  margin-bottom: 70px;
 }
 
 .btn {
@@ -203,34 +123,45 @@
   height: 163px;
 }
 
-.logo {
-  /* Logo */
-
-  width: 106.16px;
-  height: 24px;
-  margin-bottom: 90px;
-  margin-top: 30px;
-  background-image: var(--logo);
+.page {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  background-color: var(--bgcolor);
+  justify-content: center;
+  z-index: 200;
+  width: 100vw;
+  height: 100vh;
 }
 
-@media screen and (max-width: 1462px) {
-  .flex_item {
-    box-sizing: border-box;
-    width: 110px;
-    height: 170px;
-  }
-  .btn {
-    width: 110px;
-  }
-  /* ... */
+.page .close {
+  position: absolute;
+  background-image: url(../images/cross.svg);
+  width: 40px;
+  height: 40px;
+  background-color: var(--white);
+  border-radius: 10px;
+  top: 50px;
+  right: 50px;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-@media screen and (max-width: 1000px) {
-  /* ... */
+
+.close:hover {
+  background-color: var(--hover);
 }
-@media screen and (max-width: 800px) {
-  /* ... */
+
+.close:active {
+  background-color: var(--active);
+  background-image: url(../images/cross_active.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 @media screen and (max-width: 600px) {
+  .page {
+    width: 100vw;
+  }
   .left {
     margin-left: 30px;
     width: 80vw;
@@ -243,22 +174,13 @@
   .container {
     display: block;
   }
+  .container div {
+    width: 80vw;
+    margin: 0 auto;
+  }
   .btn {
     width: 100%;
     margin-bottom: 10px;
   }
   /* ... */
 }
-
-// @media screen and (min-width: 1462px) {
-//   /* ... */
-// }
-// @media screen and (min-width: 1000px) {
-//   /* ... */
-// }
-// @media screen and (min-width: 800px) {
-//   /* ... */
-// }
-// @media screen and (min-width: 500px) {
-//   /* ... */
-// }

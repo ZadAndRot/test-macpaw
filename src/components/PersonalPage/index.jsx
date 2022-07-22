@@ -7,6 +7,7 @@ class PersonalPage extends Component {
     const { person } = this.props;
     return (
       <Fragment>
+        
         <div className={styles.menu}>
           <button
             type="button"

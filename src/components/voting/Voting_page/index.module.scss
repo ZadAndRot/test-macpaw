@@ -4,7 +4,7 @@
   --hover: rgba(255, 134, 142, 0.2);
   --active: #ff868e;
   --text: white;
-  --form:rgba(255, 255, 255, 0.5);
+  --form: rgba(255, 255, 255, 0.5);
 }
 .app_light {
   --form: white;
@@ -83,10 +83,11 @@
   padding-top: 20px;
 }
 .ava {
-  
   height: 100%;
 }
 .image_container {
+  border-radius: 20px;
+  overflow: hidden;
   width: 95%;
   height: 300px;
   background-size: contain;
@@ -95,7 +96,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // background-image: url(https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg);
 }
 
 .voting_button {
@@ -105,8 +105,8 @@
   display: flex;
   width: max-content;
   overflow: hidden;
-  top:-40px;
-  background-color:var(--white);
+  top: -40px;
+  background-color: var(--white);
 }
 .like {
   width: 80px;
@@ -119,14 +119,12 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.like:hover{
+.like:hover {
   background: rgba(151, 234, 185, 0.3);
   background-image: url(../../images/like_hover.svg);
   background-position: center;
   background-repeat: no-repeat;
- 
 }
-
 
 .favorities {
   width: 80px;
@@ -139,12 +137,11 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.favorities:hover{
+.favorities:hover {
   background: rgba(255, 134, 142, 0.3);
   background-image: url(../../images/favorities_hover.svg);
   background-position: center;
   background-repeat: no-repeat;
-  
 }
 
 .dislike {
@@ -158,11 +155,30 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.dislike:hover{
+.dislike:hover {
   background: rgba(255, 210, 128, 0.3);
   background-image: url(../../images/dislike_hover.svg);
   background-position: center;
   background-repeat: no-repeat;
-  
 }
 
+// @media screen and (min-width: 1462px) {
+//   /* ... */
+// }
+// @media screen and (min-width: 1000px) {
+//   /* ... */
+// }
+// @media screen and (min-width: 800px) {
+//   /* ... */
+// }
+@media screen and (max-width: 500px) {
+  /* ... */
+  .image_container {
+    width: 80vw;
+    border-radius: 20px;
+  }
+  .ava {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -10,6 +10,7 @@ import likes from '../components/images/green_smile.svg';
 import dislikes from '../components/images/yellow_smile.svg';
 import { nanoid } from 'nanoid';
 import RightDefaulf from '../components/Starting';
+import BurgerMenu from './BurgerMenu';
 
 export class App extends Component {
   state = {
@@ -29,6 +30,11 @@ export class App extends Component {
     modal_status: false,
     uploadedFiles: [],
     searched: [],
+    openMenu: false,
+  };
+
+  openMenu = () => {
+    this.setState(prev => ({ openMenu: !prev.openMenu }));
   };
 
   handleGoBack = () => {
@@ -343,6 +349,12 @@ export class App extends Component {
               close_modal={this.close_modal}
             />
           )}
+          {this.state.openMenu && (
+            <BurgerMenu
+              openMenu={this.openMenu}
+              voting_clicked_on={this.voting_clicked_on}
+            />
+          )}
 
           <div className={styles.left}>
             <div>
@@ -432,6 +444,8 @@ export class App extends Component {
             <RightDefaulf />
           ) : (
             <Voting
+              onOpenMenu={this.openMenu}
+              voting_clicked_on={this.voting_clicked_on}
               page={this.state.page}
               onGoBack={this.handleGoBack}
               all={this.state.all}

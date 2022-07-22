@@ -9,6 +9,7 @@ import SearchResults from 'components/SearchResults';
 import VotingPage from './Voting_page';
 import PersonalPage from 'components/PersonalPage';
 import Gallery from './Gallery';
+
 class Voting extends Component {
   static propTypes = {
     page_id: PropTypes.string.isRequired,
@@ -16,6 +17,7 @@ class Voting extends Component {
 
   render() {
     const {
+      onOpenMenu,
       page,
       onGoBack,
       all,
@@ -40,8 +42,11 @@ class Voting extends Component {
     } = this.props;
     return (
       <Fragment>
+        <div className={styles.container}>
         <div className={styles.right}>
           <Search
+            onOpenMenu={onOpenMenu}
+            voting_clicked_on={this.props.voting_clicked_on}
             showFavorities={showFavorities}
             onInputClicked={onInputClicked}
           />
@@ -113,6 +118,7 @@ class Voting extends Component {
               <PersonalPage onGoBack={onGoBack} person={person} />
             )}
           </div>
+        </div>
         </div>
       </Fragment>
     );

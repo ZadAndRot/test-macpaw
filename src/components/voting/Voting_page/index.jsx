@@ -19,7 +19,14 @@ class VotingPage extends Component {
     return (
       <Fragment>
         <div>
-          <button onClick={()=>{this.props.onGoBack()}} className={styles.back}>H</button>
+          <button
+            onClick={() => {
+              this.props.onGoBack();
+            }}
+            className={styles.back}
+          >
+            H
+          </button>
           <button className={styles.button}>VOTING</button>
         </div>
 

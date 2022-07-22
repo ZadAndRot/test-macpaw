@@ -177,3 +177,43 @@ margin-bottom: 20px;
 color: #8C8C8C;
 
 }
+
+@media screen and (max-width: 1462px) {
+  /* ... */
+}
+@media screen and (max-width: 1000px) {
+  /* ... */
+}
+@media screen and (max-width: 800px) {
+  .fieldset{
+    width: 75vw;
+    height: max-content;
+    margin: 0 auto;
+  }
+  .section{
+    width: 35vw;
+  }
+  .ava{
+    height: 100%;
+    width: 100%;
+  }
+  /* ... */
+}
+@media screen and (max-width: 600px) {
+  .fieldset{
+    width: 60vw;
+    height: max-content;
+  }
+  .section{
+    margin: 0 auto;
+    text-align: center;
+    width: 25vw;
+    margin-top: 10px;
+  }
+  .inform{
+    
+    display: block;
+  }
+
+  /* ... */
+}

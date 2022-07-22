@@ -4,7 +4,7 @@
   --hover: rgba(255, 134, 142, 0.2);
   --active: #ff868e;
   --text: white;
-  --form:rgba(255, 255, 255, 0.5);
+  --form: rgba(255, 255, 255, 0.5);
 }
 .app_light {
   --form: white;
@@ -30,3 +30,32 @@
   box-sizing: border-box;
 }
 
+@media screen and (min-width: 1462px) {
+  /* ... */
+}
+@media screen and (max-width: 1000px) {
+  .container {
+    width:100vw;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    background-color: var(--bgcolor);
+    z-index: 100;
+    box-sizing: border-box;
+    height: 100vh;
+  }
+  .right {
+    width: 90vw;
+    position: absolute;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    background-color: var(--bgcolor);
+    z-index: 100;
+    box-sizing: border-box;
+  }
+}
+@media screen and (min-width: 800px) {
+}
+@media screen and (min-width: 500px) {
+}

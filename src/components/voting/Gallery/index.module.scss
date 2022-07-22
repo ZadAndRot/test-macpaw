@@ -174,7 +174,8 @@ color: #8C8C8C;
 }
 
 .select {
-  width: 275px;
+  width: calc(90%);
+ 
   height: 40px;
   background: var(--form);
   border-radius: 10px;
@@ -209,8 +210,8 @@ color: #8C8C8C;
 }
 
 form div {
-  padding-left: 30px;
-  margin-left: -30px;
+  // padding-left: 30px;
+  // margin-left: -30px;
   
   
   width: 50%;
@@ -220,13 +221,14 @@ form div {
 form div div {
   display: flex;
   justify-content: space-between;
-  width: 275px;
+  width: 90%;
   height: 40px;
   margin-top: 30px;
 }
 
 form div div .select {
-  width: 225px;
+  width: 100%;
+  // width: 225px;
   height: 40px;
   margin-top: -30px;
 }
@@ -240,4 +242,50 @@ form div div .select {
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--active);
+}
+
+@media screen and (max-width: 1462px) {
+  /* ... */
+}
+@media screen and (max-width: 1000px) {
+  /* ... */
+}
+@media screen and (max-width: 800px) {
+  /* ... */
+}
+@media screen and (max-width: 600px) {
+ .form{
+  display: block;
+  height: 350px;
+ }
+
+ .form div{
+  width: 100%;
+ }
+ .form div div{
+  width: 100%;
+  display: block;
+  padding-right: 30px;
+ }
+
+ .form div div .select{
+  display: block;
+  width: 90%;
+  
+ }
+
+ .scroll{
+  display: block;
+  width: 90%;
+  margin-top: 20px;
+ }
+
+ .menu{
+  flex-wrap: wrap;
+ }
+
+ .upload{
+  width: 100%;
+  margin-top: 10px;
+ }
 }

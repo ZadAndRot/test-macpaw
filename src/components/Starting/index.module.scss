@@ -4,8 +4,8 @@
   --hover: #fbe0dc6e;
   --active: #ff868e;
   --text: white;
-  --form:rgba(255, 255, 255, 0.5);
-  --right:rgba(255, 255, 255, 0.1);
+  --form: rgba(255, 255, 255, 0.5);
+  --right: rgba(255, 255, 255, 0.1);
 }
 .app_light {
   --form: white;
@@ -14,9 +14,8 @@
   --bgcolor: #e5e5e5;
   --hover: #fbe0dc;
   --active: #ff868e;
-  --right:#fbe0dc;
+  --right: #fbe0dc;
 }
-
 
 .right {
   position: absolute;
@@ -36,7 +35,7 @@
 
 .girl {
   /* girl-and-pet 1 */
-  
+
   height: 100vh;
   position: absolute;
   right: -18px;
@@ -46,3 +45,27 @@
   /* Inside auto layout */
 }
 
+@media screen and (max-width: 1462px) {
+  .girl {
+    width: 40vw;
+  }
+
+  .right {
+    width: 30vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .girl {
+    display: none;
+  }
+
+  .right {
+    display: none;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* ... */
+}
+@media screen and (min-width: 500px) {
+  /* ... */
+}

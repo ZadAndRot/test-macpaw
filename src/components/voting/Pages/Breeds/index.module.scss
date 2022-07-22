@@ -4,10 +4,8 @@
   --hover: rgba(255, 134, 142, 0.2);
   --active: #ff868e;
   --text: white;
-  
 }
 .app_light {
-  
   --text: black;
   --white: #ffffff;
   --bgcolor: #e5e5e5;
@@ -194,4 +192,41 @@
 .button_container {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 1462px) {
+  .all {
+    width: 80px;
+  }
+  .limit {
+    width: 80px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .all {
+    width: 120px;
+  }
+  .limit {
+    width: 120px;
+  }
+  /* ... */
+}
+@media screen and (max-width: 600px) {
+  /* ... */
+  .menu {
+    flex-wrap: wrap;
+  }
+  .limit {
+    width: 60%;
+  }
+  .all {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .back {
+    margin-bottom: 10px;
+  }
+  .button {
+    margin-bottom: 10px;
+  }
 }

@@ -8,10 +8,11 @@ class Search extends Component {
 
   
   render() {
-    const { showFavorities, onInputClicked } = this.props;
+    const { showFavorities, onInputClicked,onOpenMenu } = this.props;
 
     return (
       <div className={styles.tools}>
+        <button onClick={()=>{onOpenMenu()}} className={styles.burger}></button>
         <form
           onSubmit={e => {
             onInputClicked(this.state.value, e);

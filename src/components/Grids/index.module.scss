@@ -48,171 +48,172 @@
 }
 
 .item0 {
-  border-radius: 10px;
+  border-radius: 20px;
 
   position: relative;
   grid-area: rt;
-  width: 200px;
+  width: 12.5vw;
   overflow: hidden;
   height: 140px;
 }
 .item1 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: ct;
-  width: 200px;
+  width: 12.5vw;
   overflow: hidden;
   height: 140px;
 }
 .item2 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: lt;
-  width: 200px;
+  width: 12.5vw;
   height: 300px;
   overflow: hidden;
 }
 .item3 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: rb;
-  width: 420px;
+  width: 26vw;
   height: 300px;
   overflow: hidden;
 }
 .item4 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: lb;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
   overflow: hidden;
 }
 
 .item5 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: llt;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
   overflow: hidden;
 }
 .item6 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: cct;
   overflow: hidden;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
 }
 .item7 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: rrt;
-  width: 200px;
+  width: 12.5vw;
   overflow: hidden;
   height: 300px;
 }
 .item8 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: llb;
-  width: 420px;
+  width: 26vw;
   overflow: hidden;
   height: 300px;
 }
 .item9 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: rrb;
-  width: 200px;
+  width: 12.5vw;
   overflow: hidden;
   height: 140px;
 }
 
-.item10 {
-  border-radius: 10px;
+.item20 {
+  border-radius: 20px;
   position: relative;
   grid-area: rtt;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
   overflow: hidden;
 }
 .item11 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: ctt;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
   overflow: hidden;
 }
 .item12 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: ltt;
-  width: 200px;
+  width: 12.5vw;
   height: 300px;
   overflow: hidden;
 }
 .item13 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: rbb;
-  width: 420px;
+  width: 26vw;
   height: 300px;
   overflow: hidden;
 }
 .item14 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: lbb;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
   overflow: hidden;
 }
 
 .item15 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: lltt;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
   overflow: hidden;
 }
 .item16 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: cctt;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
   overflow: hidden;
 }
 .item17 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: rrtt;
-  width: 200px;
+  width: 12.5vw;
   height: 300px;
   overflow: hidden;
 }
 .item18 {
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   grid-area: llbb;
-  width: 420px;
+  width: 26vw;
   height: 300px;
   overflow: hidden;
 }
 .item19 {
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
   grid-area: rrbb;
-  width: 200px;
+  width: 12.5vw;
   height: 140px;
 }
 
 .grid_container {
+  position: relative;
   display: grid;
   grid-template-areas:
     'lt ct rt'
@@ -281,9 +282,238 @@
   background-image: none;
 }
 
-
-
-
-
-
-
+@media screen and (min-width: 1462px) {
+  /* ... */
+}
+@media screen and (max-width: 1000px) {
+  .item0 {
+    width: 26vw;
+  }
+  .item1 {
+    width: 26vw;
+  }
+  .item2 {
+    width: 26vw;
+  }
+  .item3 {
+    width: 53vw;
+  }
+  .item4 {
+    width: 26vw;
+  }
+  .item5 {
+    width: 26vw;
+  }
+  .item6 {
+    width: 26vw;
+  }
+  .item7 {
+    width: 26vw;
+  }
+  .item8 {
+    width: 53vw;
+  }
+  .item9 {
+    width: 26vw;
+  }
+  .item10 {
+    width: 26vw;
+  }
+  .item11 {
+    width: 26vw;
+  }
+  .item12 {
+    width: 26vw;
+  }
+  .item13 {
+    width: 53vw;
+  }
+  .item14 {
+    width: 26vw;
+  }
+  .item15 {
+    width: 26vw;
+  }
+  .item16 {
+    width: 26vw;
+  }
+  .item17 {
+    width: 26vw;
+  }
+  .item18 {
+    width: 53vw;
+  }
+  .item19 {
+    width: 26vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .item0 {
+    width: 24vw;
+  }
+  .item1 {
+    width: 24vw;
+  }
+  .item2 {
+    width: 24vw;
+  }
+  .item3 {
+    width: 53vw;
+  }
+  .item4 {
+    width: 24vw;
+  }
+  .item5 {
+    width: 24vw;
+  }
+  .item6 {
+    width: 24vw;
+  }
+  .item7 {
+    width: 24vw;
+  }
+  .item8 {
+    width: 50vw;
+  }
+  .item9 {
+    width: 24vw;
+  }
+  .item10 {
+    width: 24vw;
+  }
+  .item11 {
+    width: 24vw;
+  }
+  .item12 {
+    width: 24vw;
+  }
+  .item13 {
+    width: 50vw;
+  }
+  .item14 {
+    width: 24vw;
+  }
+  .item15 {
+    width: 24vw;
+  }
+  .item16 {
+    width: 24vw;
+  }
+  .item17 {
+    width: 24vw;
+  }
+  .item18 {
+    width: 50vw;
+  }
+  .item19 {
+    width: 24vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .grid_container {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    .item0 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item1 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item2 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item3 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item4 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item5 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item6 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item7 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item8 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item9 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item10 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item11 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item12 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item13 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item14 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item15 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item16 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item17 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item18 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+    .item19 {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+    }
+  }
+  /* ... */
+}
