@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/test-macpaw/static/css/main.48cddd19.css",
+    "main.css": "/test-macpaw/static/css/main.3fe82130.css",
     "main.js": "/test-macpaw/static/js/main.b310b242.js",
     "static/media/pet-breeds.svg": "/test-macpaw/static/media/pet-breeds.11b3d89395d60dd8686fcd27153b82ad.svg",
     "static/media/girl_catches_cat.svg": "/test-macpaw/static/media/girl_catches_cat.c9bbff2bdb8842537f95f0922727f855.svg",
@@ -48,11 +48,11 @@
     "static/media/upload_default.svg": "/test-macpaw/static/media/upload_default.897ccd92c7846e3c1bff.svg",
     "static/media/upload_active.svg": "/test-macpaw/static/media/upload_active.3fb4a1cf0d866b2fa05b.svg",
     "static/media/burger.svg": "/test-macpaw/static/media/burger.149bd42f9371cd5442aa.svg",
-    "main.48cddd19.css.map": "/test-macpaw/static/css/main.48cddd19.css.map",
+    "main.3fe82130.css.map": "/test-macpaw/static/css/main.3fe82130.css.map",
     "main.b310b242.js.map": "/test-macpaw/static/js/main.b310b242.js.map"
   },
   "entrypoints": [
-    "static/css/main.48cddd19.css",
+    "static/css/main.3fe82130.css",
     "static/js/main.b310b242.js"
   ]
 }
