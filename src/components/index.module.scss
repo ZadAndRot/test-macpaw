@@ -1,16 +1,16 @@
 .app_dark {
-  --white: rgba(255, 255, 255, 0.1);
+  --white: rgb(48, 44, 44);
   --bgcolor: #1d1d1d;
   --hover: rgba(255, 134, 142, 0.2);
   --active: #ff868e;
   --text: white;
-  --right: rgba(255, 255, 255, 0.1);
+  --right: rgb(225, 225, 225,0.05);
   --logo: url(../components/images/logocopy.svg);
   --form: #1d1d1d;
-  --gray: rgba(255, 255, 255, 0.1);
+  --gray: rgb(225, 225, 225,0.05);
   --position: flex-start;
   --img: url(../components/images/eye_down.svg);
-  --eye: rgba(255, 255, 255, 0.1);
+  --eye: rgb(225, 225, 225,0.05);
 }
 .app_light {
   --text: black;
