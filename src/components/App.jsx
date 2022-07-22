@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import styles from '../components/index.module.scss';
-import logo from '../components/images/logo.svg';
 import vote_table from 'components/images/vote-table.svg';
 import pet_breeds from 'components/images/pet-breeds.svg';
 import images_search from 'components/images/images-search.svg';
