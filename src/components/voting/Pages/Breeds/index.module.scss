@@ -1,6 +1,19 @@
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: rgba(255, 134, 142, 0.2);
+  --active: #ff868e;
+  --text: white;
+  
+}
+.app_light {
+  
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+}
 .menu {
   display: flex;
   align-items: center;
@@ -10,7 +23,7 @@ $active: #ff868e;
 .button {
   width: 146px;
   height: 40px;
-  background: $active;
+  background: var(--active);
   border-radius: 10px;
   border: none;
   font-family: 'Jost';
@@ -27,7 +40,7 @@ $active: #ff868e;
 .back {
   width: 40px;
   height: 40px;
-  background-color: $hover;
+  background-color: var(--hover);
   background-image: url(../../../images/wing_default.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -50,7 +63,7 @@ $active: #ff868e;
 .all {
   width: 226px;
   height: 40px;
-  background-color: $bgcolor;
+  background-color: var(--gray);
   border: none;
   border-radius: 10px;
 
@@ -70,7 +83,7 @@ $active: #ff868e;
   width: 101px;
   height: 40px;
   border-radius: 10px;
-  background-color: $bgcolor;
+  background-color: var(--gray);
   border: none;
   font-family: 'Jost';
   font-style: normal;
@@ -106,6 +119,7 @@ $active: #ff868e;
   background-position: center;
   border: none;
   border-radius: 10px;
+  background-color: var(--gray);
 }
 
 .button_sort:hover {
@@ -117,7 +131,7 @@ $active: #ff868e;
   padding: 12px 30px;
   gap: 10px;
 
-  background: #fbe0dc;
+  background: var(--hover);
   border-radius: 10px;
   font-family: 'Jost';
   font-style: normal;
@@ -125,17 +139,17 @@ $active: #ff868e;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 2px;
-  color: #ff868e;
+  color: var(--active);
   border: none;
 }
 
 .pages:hover {
-  background: #f8f8f7;
+  background: var(--white);
   color: #8c8c8c;
 }
 
 .pages:active {
-  background: #ff868e;
+  background: var(--active);
   color: white;
 }
 

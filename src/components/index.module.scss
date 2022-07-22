@@ -1,13 +1,73 @@
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: rgba(255, 134, 142, 0.2);
+  --active: #ff868e;
+  --text: white;
+  --right: rgba(255, 255, 255, 0.1);
+  --logo: url(../components/images/logocopy.svg);
+  --form: #1d1d1d;
+  --gray: rgba(255, 255, 255, 0.1);
+  --position: flex-start;
+  --img: url(../components/images/eye_down.svg);
+  --eye: rgba(255, 255, 255, 0.1);
+}
+.app_light {
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+  --logo: url(../components/images/logo.svg);
+  --right: #fbe0dc;
+  --form: white;
+  --gray: #f8f8f7;
+  --position: flex-end;
+  --img: url(../components/images/eye_upp.svg);
+  --eye: white;
+}
+
+.toggle {
+  width: 44px;
+  height: 24px;
+  background: rgba(255, 134, 142, 0.2);
+  border-radius: 50px;
+  display: flex;
+  margin-bottom: 90px;
+  margin-top: 30px;
+  border: none;
+  position: relative;
+  align-items: center;
+  justify-content: var(--position);
+}
+
+.eye {
+  width: 24px;
+  margin-right: 5px;
+  height: 24px;
+  background-color: var(--eye);
+  background-image: var(--img);
+  border-radius: 50%;
+  margin-bottom: 90px;
+  margin-top: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.on {
+  position: absolute;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: var(--active);
+}
 
 .app {
   /* Home */
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: #f8f8f7;
+  background: var(--bgcolor);
   overflow: auto;
   display: flex;
   justify-content: space-between;
@@ -32,14 +92,6 @@ $active: #ff868e;
   position: sticky;
 }
 
-.logo {
-  /* Logo */
-  width: 106.16px;
-  height: 24px;
-  margin-bottom: 90px;
-  margin-top: 30px;
-}
-
 .start {
   /* Lets start using The Cat API */
   width: 241px;
@@ -50,7 +102,7 @@ $active: #ff868e;
   font-size: 20px;
   line-height: 29px;
   /* identical to box height */
-  color: #1d1d1d;
+  color: var(--text);
 }
 
 .hello {
@@ -63,7 +115,7 @@ $active: #ff868e;
   font-size: 44px;
   line-height: 58px;
   /* identical to box height, or 132% */
-  color: #1d1d1d;
+  color: var(--text);
 }
 
 .welcome {
@@ -81,7 +133,7 @@ $active: #ff868e;
 }
 
 .btn {
-  background: #ffffff;
+  background: var(--white);
   border-radius: 10px;
   border: none;
   font-family: 'Jost';
@@ -95,14 +147,12 @@ $active: #ff868e;
   text-align: center;
   letter-spacing: 2px;
 
-  color: #ff868e;
+  color: var(--active);
   margin-left: 16px;
 }
 .btn:hover {
-  background-color: $hover;
+  background-color: var(--hover);
 }
-
-
 
 .container {
   display: flex;
@@ -136,21 +186,29 @@ $active: #ff868e;
 }
 
 .flex_item:hover {
-  border: 4px solid #ffffff;
+  border: 4px solid var(--white);
 }
-
 
 .flex_item_active div {
-  border: 4px solid #fbe0dc;
+  border: 4px solid var(--active);
 }
 
-.flex_item_active button{
-  background-color: $active;
-  color: white;
+.flex_item_active button {
+  background-color: var(--active);
+  color: var(--white);
 }
-
 
 .img {
   width: 117px;
   height: 163px;
+}
+
+.logo {
+  /* Logo */
+
+  width: 106.16px;
+  height: 24px;
+  margin-bottom: 90px;
+  margin-top: 30px;
+  background-image: var(--logo);
 }

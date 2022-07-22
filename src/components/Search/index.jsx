@@ -2,28 +2,36 @@ import { Component } from 'react';
 import styles from '../Search/index.module.scss';
 
 class Search extends Component {
-  state={
-    value:""
-  }
+  state = {
+    value: '',
+  };
+
+  
   render() {
-    const { showFavorities, onInputClicked} = this.props;
+    const { showFavorities, onInputClicked } = this.props;
+
     return (
       <div className={styles.tools}>
-        <form onSubmit={(e)=> {  onInputClicked(this.state.value,e)
-        this.setState({value:""})}} className={styles.input_container}>
+        <form
+          onSubmit={e => {
+            onInputClicked(this.state.value, e);
+            this.setState({ value: '' });
+          }}
+          className={styles.input_container}
+        >
           <input
-            onClick={()=>showFavorities("search")}
-            onChange={(e)=>this.setState({value:e.target.value})}
+            onClick={() => showFavorities('search')}
+            onChange={e => this.setState({ value: e.target.value })}
             value={this.state.value}
             placeholder="Search for breeds by name"
             className={styles.search}
             type="text"
           />
-          <button type='submit'  alt=""></button>
-          
+          <button type="submit" alt=""></button>
         </form>
 
-        <button active="true"
+        <button
+          active={true}
           onClick={() => {
             showFavorities('likes');
           }}

@@ -1,6 +1,19 @@
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: rgba(255, 134, 142, 0.2);
+  --active: #ff868e;
+  --text: white;
+  --form:rgba(255, 255, 255, 0.5);
+}
+.app_light {
+  --form: white;
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+}
 
 .menu {
   display: flex;
@@ -19,7 +32,7 @@ $active: #ff868e;
 .button {
   width: 146px;
   height: 40px;
-  background: $active;
+  background: var(--active);
   border-radius: 10px;
   border: none;
   font-family: 'Jost';
@@ -37,7 +50,7 @@ $active: #ff868e;
 .back {
   width: 40px;
   height: 40px;
-  background-color: $hover;
+  background-color: var(--hover);
   background-image: url(../../images/wing_default.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -59,9 +72,9 @@ $active: #ff868e;
 .upload {
   width: 143px;
   height: 40px;
-  background: $hover;
+  background: var(--hover);
   border-radius: 10px;
-  color: $active;
+  color: var(--active);
   border: none;
   background-image: url(../../images/upload_default.svg);
   background-position: left 10px center;
@@ -69,7 +82,7 @@ $active: #ff868e;
 }
 
 .upload:hover {
-  background-color: $active;
+  background-color: var(--active);
   color: white;
   background-image: url(../../images/upload_active.svg);
   background-position: left 10px center;
@@ -137,7 +150,7 @@ color: #8C8C8C;
 .more {
   width: 172px;
   height: 40px;
-  background: $active;
+  background: var(--active);
   border-radius: 10px;
   border: none;
   margin: 0 auto;
@@ -147,7 +160,7 @@ color: #8C8C8C;
   margin-top: 5px;
   width:100%;
   height: max-content;
-  background-color: $bgcolor;
+  background-color: var(--gray);
   border-radius: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -163,7 +176,7 @@ color: #8C8C8C;
 .select {
   width: 275px;
   height: 40px;
-  background: #ffffff;
+  background: var(--form);
   border-radius: 10px;
   font-family: 'Jost';
   font-style: normal;
@@ -172,7 +185,7 @@ color: #8C8C8C;
   line-height: 24px;
   /* identical to box height, or 150% */
 
-  color: #1d1d1d;
+  color: var(--text);
 
   border: none;
   display: block;
@@ -180,13 +193,13 @@ color: #8C8C8C;
 }
 
 .select:hover {
-  border: 1px solid $hover;
+  border: 1px solid var(--hover);
 }
 
 .scroll {
   width: 40px;
   height: 40px;
-  background: #ffffff;
+  background: var(--form);
   border-radius: 10px;
   background-image: url(../../images/scroll_default.svg);
   background-position: center;
@@ -219,12 +232,12 @@ form div div .select {
 }
 
 .scroll:hover {
-  background-color: $hover;
+  background-color: var(--hover);
 }
 
 .scroll:active {
   background-image: url(../../images/scroll_active.svg);
   background-position: center;
   background-repeat: no-repeat;
-  background-color: $active;
+  background-color: var(--active);
 }

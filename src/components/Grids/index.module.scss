@@ -1,11 +1,22 @@
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: rgba(255, 134, 142, 0.2);
+  --active: #ff868e;
+  --text: white;
+}
+.app_light {
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+}
 
 .hovered_div button {
   width: 40px;
   height: 40px;
-  background: #ffffff;
+  background-color: var(--form);
   border-radius: 10px;
   background-image: url(../images/smile_default.svg);
   background-repeat: no-repeat;
@@ -13,32 +24,27 @@ $active: #ff868e;
   background-position: center;
 }
 
-
 .hovered_div button:hover {
-  background-color: $hover;
+  background-color: var(--hover);
 }
 
 .hovered_div button:active {
-  background-color: $active;
+  background-color: var(--active);
   background-image: url(../images/smile_active.svg);
   background-repeat: no-repeat;
 
   background-position: center;
 }
 
-.hovered_btn button.like{
+.hovered_btn button.like {
   background-image: none;
 }
 
-
-
-
-
 .item_img {
   position: relative;
-  
-    height: 100%;
-    width: 100%;
+
+  height: 100%;
+  width: 100%;
 }
 
 .item0 {
@@ -99,21 +105,24 @@ $active: #ff868e;
   width: 200px;
   height: 140px;
 }
-.item7 {border-radius: 10px;
+.item7 {
+  border-radius: 10px;
   position: relative;
   grid-area: rrt;
   width: 200px;
   overflow: hidden;
   height: 300px;
 }
-.item8 {border-radius: 10px;
+.item8 {
+  border-radius: 10px;
   position: relative;
   grid-area: llb;
   width: 420px;
   overflow: hidden;
   height: 300px;
 }
-.item9 {border-radius: 10px;
+.item9 {
+  border-radius: 10px;
   position: relative;
   grid-area: rrb;
   width: 200px;
@@ -121,35 +130,40 @@ $active: #ff868e;
   height: 140px;
 }
 
-.item10 {border-radius: 10px;
+.item10 {
+  border-radius: 10px;
   position: relative;
   grid-area: rtt;
   width: 200px;
   height: 140px;
   overflow: hidden;
 }
-.item11 {border-radius: 10px;
+.item11 {
+  border-radius: 10px;
   position: relative;
   grid-area: ctt;
   width: 200px;
   height: 140px;
   overflow: hidden;
 }
-.item12 {border-radius: 10px;
+.item12 {
+  border-radius: 10px;
   position: relative;
   grid-area: ltt;
   width: 200px;
   height: 300px;
   overflow: hidden;
 }
-.item13 {border-radius: 10px;
+.item13 {
+  border-radius: 10px;
   position: relative;
   grid-area: rbb;
   width: 420px;
   height: 300px;
   overflow: hidden;
 }
-.item14 {border-radius: 10px;
+.item14 {
+  border-radius: 10px;
   position: relative;
   grid-area: lbb;
   width: 200px;
@@ -157,35 +171,40 @@ $active: #ff868e;
   overflow: hidden;
 }
 
-.item15 {border-radius: 10px;
+.item15 {
+  border-radius: 10px;
   position: relative;
   grid-area: lltt;
   width: 200px;
   height: 140px;
   overflow: hidden;
 }
-.item16 {border-radius: 10px;
+.item16 {
+  border-radius: 10px;
   position: relative;
   grid-area: cctt;
   width: 200px;
   height: 140px;
   overflow: hidden;
 }
-.item17 {border-radius: 10px;
+.item17 {
+  border-radius: 10px;
   position: relative;
   grid-area: rrtt;
   width: 200px;
   height: 300px;
   overflow: hidden;
 }
-.item18 {border-radius: 10px;
+.item18 {
+  border-radius: 10px;
   position: relative;
   grid-area: llbb;
   width: 420px;
   height: 300px;
   overflow: hidden;
 }
-.item19 {border-radius: 10px;
+.item19 {
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
   grid-area: rrbb;
@@ -214,10 +233,11 @@ $active: #ff868e;
 
 .hovered_div {
   position: absolute;
-  
+
   background-color: rgba(255, 134, 142, 0.6);
+
   text-align: center;
-  color: white;
+  color: var(--text);
   font-family: 'Jost';
   font-style: normal;
   font-weight: 400;
@@ -227,12 +247,8 @@ $active: #ff868e;
   display: none;
 }
 
-
-
-
-
 .hovered_text {
-  background: #ffffff;
+  background: var(--form);
   border-radius: 10px;
   font-family: 'Jost';
   font-style: normal;
@@ -241,10 +257,9 @@ $active: #ff868e;
   line-height: 24px;
   padding: 10px;
   text-align: center;
-  color: #ff868e;
+  color: var(--active);
   margin-bottom: 15px;
 }
-
 
 .hovered {
   display: flex;
@@ -252,10 +267,9 @@ $active: #ff868e;
   justify-content: center;
   width: 100%;
   height: 100%;
-  
 }
 
-.hovered_btn{
+.hovered_btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -263,9 +277,12 @@ $active: #ff868e;
   height: 100%;
 }
 
-.hovered_div .like{
+.hovered_div .like {
   background-image: none;
 }
+
+
+
 
 
 

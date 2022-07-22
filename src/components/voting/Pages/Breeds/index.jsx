@@ -91,7 +91,7 @@ class Breeds extends Component {
 
         <Fragment>
           <Grid5 page="breeds" items={this.props.items} />
-          {this.props.status===false&&<Loader/>}
+          {this.props.status === false && <Loader />}
 
           <div className={styles.button_container}>
             <button
@@ -106,10 +106,9 @@ class Breeds extends Component {
 
             <button
               className={styles.pages + ' ' + styles.pages_next}
-              disabled={!this.props.items===[]}
+              disabled={!this.props.items === []}
               onClick={e => {
                 this.goToNext(e);
-                
               }}
             >
               NEXT

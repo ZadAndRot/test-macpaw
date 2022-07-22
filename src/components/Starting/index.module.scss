@@ -1,7 +1,21 @@
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
-
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: #fbe0dc6e;
+  --active: #ff868e;
+  --text: white;
+  --form:rgba(255, 255, 255, 0.5);
+  --right:rgba(255, 255, 255, 0.1);
+}
+.app_light {
+  --form: white;
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+  --right:#fbe0dc;
+}
 
 
 .right {
@@ -12,7 +26,7 @@ $active: #ff868e;
   top: 30px;
   bottom: 30px;
 
-  background: $hover;
+  background: var(--right);
   border-radius: 20px;
 
   flex: none;

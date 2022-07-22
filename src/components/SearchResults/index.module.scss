@@ -1,8 +1,24 @@
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: rgba(255, 134, 142, 0.2);
+  --active: #ff868e;
+  --text: white;
+  --form:rgba(255, 255, 255, 0.5);
+}
+.app_light {
+  --form: white;
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+}
+
 .grid_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .image_container {
@@ -34,7 +50,7 @@
 .hovered span {
   width: 180px;
   height: 40px;
-  background: #ffffff;
+  background: var(--form);
   border-radius: 10px;
 
   font-family: 'Jost';
@@ -46,8 +62,7 @@
   align-items: center;
   justify-content: center;
 
-
-  color: #ff868e;
+  color: var(--active);
 }
 
 .image_container:hover .hovered {
@@ -56,10 +71,6 @@
   justify-content: center;
   padding: 30px;
 }
-
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
 
 .menu {
   display: flex;
@@ -79,7 +90,7 @@ $active: #ff868e;
 .button {
   width: 146px;
   height: 40px;
-  background: $active;
+  background: var(--active);
   border-radius: 10px;
   border: none;
   font-family: 'Jost';
@@ -91,13 +102,13 @@ $active: #ff868e;
   text-align: center;
   letter-spacing: 2px;
 
-  color: #ffffff;
+  color: white;
 }
 
 .back {
   width: 40px;
   height: 40px;
-  background-color: $hover;
+  background-color: var(--hover);
   background-image: url(../images/wing_default.svg);
   background-repeat: no-repeat;
   background-position: center;

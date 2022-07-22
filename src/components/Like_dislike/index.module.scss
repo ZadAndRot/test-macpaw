@@ -1,11 +1,26 @@
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: rgba(255, 134, 142, 0.2);
+  --active: #ff868e;
+  --text: white;
+  --form:rgba(255, 255, 255, 0.5);
+ 
+}
+.app_light {
+  --form:white;
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+
+}
 
 .button {
   width: 146px;
   height: 40px;
-  background: $active;
+  background: var(--active);
   border-radius: 10px;
   border: none;
   font-family: 'Jost';
@@ -17,12 +32,12 @@ $active: #ff868e;
   text-align: center;
   letter-spacing: 2px;
 
-  color: #ffffff;
+  color: var(--text);
 }
 .back {
   width: 40px;
   height: 40px;
-  background-color: $hover;
+  background-color: var(--hover);
   background-image: url(../../components/images/wing_default.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -76,7 +91,7 @@ $active: #ff868e;
 .popup button {
   width: 40px;
   height: 40px;
-  background-color: white;
+  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +112,7 @@ $active: #ff868e;
   width:calc(100%-60px) ;
   height: 60px;
   margin: 5px auto;
-  background: #f8f8f7;
+  background: var(--form);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -121,13 +136,13 @@ color: #8C8C8C;
 
 .history span{
   font-weight: bold;
-  color: black;
+  color: var(--text);
 }
 
 .time {
   width: 41px;
-  background-color: white;
-  color: black;
+  background-color: var(--white);
+  color: var(--text);
   padding: 3px 10px;
   text-align: center;
   font-family: 'Jost';

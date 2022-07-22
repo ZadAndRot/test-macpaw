@@ -14,6 +14,7 @@ import RightDefaulf from '../components/Starting';
 
 export class App extends Component {
   state = {
+    light: true,
     page_id: 'default',
     status: false,
     all: [],
@@ -22,11 +23,7 @@ export class App extends Component {
     limit: 5,
     page: 1,
     path: ['default'],
-    history: [
-      { id: 'id-1', text: 'Cat was added to favorities', image: favorite },
-      { id: 'id-2', text: 'Cat was added to favorities', image: favorite },
-      { id: 'id-3', text: 'Cat was added to favorities', image: favorite },
-    ],
+    history: [],
     favorite: [],
     liked: [],
     disliked: [],
@@ -123,34 +120,41 @@ export class App extends Component {
     }
   };
 
+  toggleClicked = e => {
+    this.setState(prev => ({ light: !prev.light }));
+
+    console.log(e.target);
+  };
+
   async componentDidMount() {
     fetch(
       `https://api.thecatapi.com/v1/breeds?&limit=${this.state.limit}&page=${this.state.page}`
-    )
-      .then(res =>
-        res.json().then(json => {
+    ).then(res =>
+      res
+        .json()
+        .then(json => {
           this.setState({
             status: true,
             items: json.filter(el =>
-              Object.keys(el).some(key => key === 'image'?1:-1)
+              Object.keys(el).some(key => (key === 'image' ? 1 : -1))
             ),
           });
-        }).finally(this.setState({ status: false })
-        )
+        })
+        .finally(this.setState({ status: false }))
+    );
 
-      )
-      
-    fetch(`https://api.thecatapi.com/v1/breeds`)
-      .then(res =>
-        res.json().then(json => {
+    fetch(`https://api.thecatapi.com/v1/breeds`).then(res =>
+      res
+        .json()
+        .then(json => {
           this.setState({
             all: json.filter(el =>
-              Object.keys(el).some(key => key === 'image'?1:-1)
+              Object.keys(el).some(key => (key === 'image' ? 1 : -1))
             ),
           });
-        }).finally(this.setState({ status: false }))
-      )
-      
+        })
+        .finally(this.setState({ status: false }))
+    );
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -317,7 +321,6 @@ export class App extends Component {
 
   voting_clicked_on = (e, page) => {
     let active = document.getElementsByClassName(styles.flex_item_active);
-    console.log(active);
     if (e.currentTarget === active[0]) {
       e.currentTarget.classList.remove(styles.flex_item_active);
       this.setState({ page_id: 'default' });
@@ -333,98 +336,127 @@ export class App extends Component {
 
   render() {
     return (
-      <div className={styles.app}>
-        {this.state.modal_status && (
-          <Upload
-            setUploadedFiles={this.setUploadedFiles}
-            close_modal={this.close_modal}
-          />
-        )}
+      <div className={this.state.light ? styles.app_light : styles.app_dark}>
+        <div className={styles.app}>
+          {this.state.modal_status && (
+            <Upload
+              setUploadedFiles={this.setUploadedFiles}
+              close_modal={this.close_modal}
+            />
+          )}
 
-        <div className={styles.left}>
-          <img alt="" className={styles.logo} src={logo} />
-          <p className={styles.hello}>Hi intern!</p>
-          <p className={styles.welcome}>Welcome to MI 2022 Front-end test</p>
-          <p className={styles.start}>Lets start using The Cat API</p>
-
-          <div className={styles.container}>
-            <div
-              onClick={e => {
-                this.voting_clicked_on(e, 'voting');
-              }}
-            >
-              <div className={styles.flex_item + ' ' + styles.vote}>
-                <img alt="" className={styles.img} src={vote_table} />
-              </div>
-
-              <button className={styles.btn_voting + ' ' + styles.btn}>
-                VOTING
-              </button>
-            </div>
-
-            <div
-              onClick={e => {
-                this.voting_clicked_on(e, 'breeds');
-              }}
-            >
-              <div id="pet" className={styles.flex_item + ' ' + styles.pet}>
-                <img alt="" className={styles.img} src={pet_breeds} />
-              </div>
-
-              <button className={styles.btn_breeds + ' ' + styles.btn}>
-                BREEDS
-              </button>
-            </div>
-
-            <div
-              onClick={e => {
-                this.voting_clicked_on(e, 'gallery');
-              }}
-            >
+          <div className={styles.left}>
+            <div>
               <div
-                id="images"
-                className={styles.flex_item + ' ' + styles.images}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
               >
-                <img alt="" className={styles.img} src={images_search} />
+                <div className={styles.logo}></div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <div className={styles.eye}></div>
+                  <button
+                    onClick={e => {
+                      this.toggleClicked(e);
+                    }}
+                    className={styles.toggle}
+                  >
+                    <span className={styles.on}></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <p className={styles.hello}>Hi intern!</p>
+            <p className={styles.welcome}>Welcome to MI 2022 Front-end test</p>
+            <p className={styles.start}>Lets start using The Cat API</p>
+
+            <div className={styles.container}>
+              <div
+                onClick={e => {
+                  this.voting_clicked_on(e, 'voting');
+                }}
+              >
+                <div className={styles.flex_item + ' ' + styles.vote}>
+                  <img alt="" className={styles.img} src={vote_table} />
+                </div>
+
+                <button className={styles.btn_voting + ' ' + styles.btn}>
+                  VOTING
+                </button>
               </div>
 
-              <button
-                id="images_button"
-                className={styles.btn_gallery + ' ' + styles.btn}
+              <div
+                onClick={e => {
+                  this.voting_clicked_on(e, 'breeds');
+                }}
               >
-                GALLERY
-              </button>
+                <div id="pet" className={styles.flex_item + ' ' + styles.pet}>
+                  <img alt="" className={styles.img} src={pet_breeds} />
+                </div>
+
+                <button className={styles.btn_breeds + ' ' + styles.btn}>
+                  BREEDS
+                </button>
+              </div>
+
+              <div
+                onClick={e => {
+                  this.voting_clicked_on(e, 'gallery');
+                }}
+              >
+                <div
+                  id="images"
+                  className={styles.flex_item + ' ' + styles.images}
+                >
+                  <img alt="" className={styles.img} src={images_search} />
+                </div>
+
+                <button
+                  id="images_button"
+                  className={styles.btn_gallery + ' ' + styles.btn}
+                >
+                  GALLERY
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        {this.state.page_id === 'default' ? (
-          <RightDefaulf />
-        ) : (
-          <Voting
-            page={this.state.page}
-            onGoBack={this.handleGoBack}
-            all={this.state.all}
-            updatePage={this.updatePage}
-            updateLimit={this.updateLimit}
-            handleOrderItems={this.handleOrderItems}
-            searched={this.state.searched}
-            onInputClicked={this.handleInputClicked}
-            uploadedFiles={this.state.uploadedFiles}
-            showElementByName={this.showElementByName}
-            person={this.state.person}
-            showFavorities={this.showFavorities}
-            items={this.state.items}
-            favourities={this.state.favorite}
-            likes={this.state.liked}
-            dislikes={this.state.disliked}
-            history={this.state.history}
-            addHistory={this.addHistory}
-            page_id={this.state.page_id}
-            open_modal={this.open_modal}
-            status={this.state.status}
-          />
-        )}
+          {this.state.page_id === 'default' ? (
+            <RightDefaulf />
+          ) : (
+            <Voting
+              page={this.state.page}
+              onGoBack={this.handleGoBack}
+              all={this.state.all}
+              updatePage={this.updatePage}
+              updateLimit={this.updateLimit}
+              handleOrderItems={this.handleOrderItems}
+              searched={this.state.searched}
+              onInputClicked={this.handleInputClicked}
+              uploadedFiles={this.state.uploadedFiles}
+              showElementByName={this.showElementByName}
+              person={this.state.person}
+              showFavorities={this.showFavorities}
+              items={this.state.items}
+              favourities={this.state.favorite}
+              likes={this.state.liked}
+              dislikes={this.state.disliked}
+              history={this.state.history}
+              addHistory={this.addHistory}
+              page_id={this.state.page_id}
+              open_modal={this.open_modal}
+              status={this.state.status}
+            />
+          )}
+        </div>
       </div>
     );
   }

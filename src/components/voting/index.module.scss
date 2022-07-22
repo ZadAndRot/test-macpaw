@@ -1,6 +1,19 @@
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: rgba(255, 134, 142, 0.2);
+  --active: #ff868e;
+  --text: white;
+  --form:rgba(255, 255, 255, 0.5);
+}
+.app_light {
+  --form: white;
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+}
 
 .right {
   width: 45vw;
@@ -9,7 +22,7 @@ $active: #ff868e;
 }
 
 .page_voting {
-  background: #ffffff;
+  background: var(--white);
   border-radius: 20px;
   width: 100%;
   margin-top: 10px;

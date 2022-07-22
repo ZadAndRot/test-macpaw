@@ -1,6 +1,19 @@
-$bgcolor: #e5e5e5;
-$hover: #fbe0dc;
-$active: #ff868e;
+.app_dark {
+  --white: rgba(255, 255, 255, 0.1);
+  --bgcolor: #1d1d1d;
+  --hover: rgba(255, 134, 142, 0.2);
+  --active: #ff868e;
+  --text: white;
+  --form:rgba(255, 255, 255, 0.5);
+}
+.app_light {
+  --form: white;
+  --text: black;
+  --white: #ffffff;
+  --bgcolor: #e5e5e5;
+  --hover: #fbe0dc;
+  --active: #ff868e;
+}
 
 .modal_back {
   position: fixed;
@@ -19,7 +32,7 @@ $active: #ff868e;
 .upload_photo {
   width: 172px;
   height: 40px;
-  background: #ff868e;
+  background: var(--active);
   border-radius: 10px;
   margin: 0 auto;
   font-family: 'Jost';
@@ -41,7 +54,7 @@ $active: #ff868e;
   right: 50px;
   height: 40px;
   width: 40px;
-  background-color: white;
+  background-color: var(--white);
   background-image: url(../images/close_default.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -50,11 +63,11 @@ $active: #ff868e;
 }
 
 .close_modal:hover {
-  background-color: $hover;
+  background-color: var(--hover);
 }
 
 .close_modal:active {
-  background-color: $active;
+  background-color: var(--active);
   background-image: url(../images/close.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -63,9 +76,9 @@ $active: #ff868e;
 .modal_body {
   z-index: 300;
   height: 90%;
-  background-color: white;
+  background-color: var(--white);
   width: 50%;
-  background: #f8f8f7;
+  background: var(--white);
   border-radius: 20px;
   padding: 30px;
   display: flex;
@@ -82,7 +95,7 @@ $active: #ff868e;
   line-height: 52px;
   /* identical to box height */
 
-  color: #1d1d1d;
+  color: var(--text);
 }
 
 .h2 {
@@ -98,7 +111,7 @@ $active: #ff868e;
 
 .desc {
   width: 100%;
-  background: #ffffff;
+  background: var(--white);
   border: 2px dashed #fbe0dc;
   border-radius: 20px;
   background-image: url(../images/photo.svg);
