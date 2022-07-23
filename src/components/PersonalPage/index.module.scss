@@ -4,17 +4,15 @@
   --hover: rgba(255, 134, 142, 0.2);
   --active: #ff868e;
   --text: white;
-  --form:rgba(255, 255, 255, 0.5);
- 
+  --form: rgba(255, 255, 255, 0.5);
 }
 .app_light {
-  --form:white;
+  --form: white;
   --text: black;
   --white: #ffffff;
   --bgcolor: #e5e5e5;
   --hover: #fbe0dc;
   --active: #ff868e;
-
 }
 
 .button {
@@ -84,7 +82,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .scroll {
@@ -112,70 +109,64 @@
 .circle_active {
   background-color: var(--active);
 }
-.inform{
-    display: flex;
-    justify-content: space-around;
-    
+.inform {
+  display: flex;
+  justify-content: space-around;
 }
 
-.section{
-    width: 270px;
-    height: 89px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
+.section {
+  width: 270px;
+  height: 89px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
-.value{
-    font-family: 'Jost';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 23px;
+.value {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
 
-color: gray;
-
+  color: gray;
 }
 
-.key{
-    color: var(--text);
-
+.key {
+  color: var(--text);
 }
 
-.fieldset{
-    width: 640px;
-height: max-content;
-border: 2px solid var(--active);
-border-radius: 20px;
-text-align: center;
+.fieldset {
+  width: 640px;
+  height: max-content;
+  border: 2px solid var(--active);
+  border-radius: 20px;
+  text-align: center;
 }
 
-.legend{
-    font-family: 'Jost';
-font-style: normal;
-font-weight: 500;
-font-size: 36px;
-line-height: 52px;
-/* identical to box height */
-margin: 0 auto;
+.legend {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 52px;
+  /* identical to box height */
+  margin: 0 auto;
 
-
-color: var(--text);
+  color: var(--text);
 }
 
-.description{
-    font-family: 'Jost';
-font-style: normal;
-font-weight: 500;
-font-size: 20px;
-line-height: 29px;
-/* identical to box height */
-margin-bottom: 20px;
+.description {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 29px;
+  /* identical to box height */
+  margin-bottom: 20px;
 
-
-color: #8C8C8C;
-
+  color: #8c8c8c;
 }
 
 @media screen and (max-width: 1462px) {
@@ -185,33 +176,32 @@ color: #8C8C8C;
   /* ... */
 }
 @media screen and (max-width: 800px) {
-  .fieldset{
+  .fieldset {
     width: 75vw;
     height: max-content;
     margin: 0 auto;
   }
-  .section{
+  .section {
     width: 35vw;
   }
-  .ava{
+  .ava {
     height: 100%;
     width: 100%;
   }
   /* ... */
 }
 @media screen and (max-width: 600px) {
-  .fieldset{
+  .fieldset {
     width: 60vw;
     height: max-content;
   }
-  .section{
+  .section {
     margin: 0 auto;
     text-align: center;
     width: 25vw;
     margin-top: 10px;
   }
-  .inform{
-    
+  .inform {
     display: block;
   }
 

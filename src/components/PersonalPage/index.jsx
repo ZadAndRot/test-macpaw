@@ -7,12 +7,13 @@ class PersonalPage extends Component {
     const { person } = this.props;
     return (
       <Fragment>
-        
         <div className={styles.menu}>
           <button
             type="button"
             className={styles.back}
-            onClick={()=>{this.props.onGoBack()}}
+            onClick={() => {
+              this.props.onGoBack();
+            }}
           >
             H
           </button>
@@ -41,8 +42,6 @@ class PersonalPage extends Component {
           <div className={styles.circle}></div>
         </div>
 
-
-
         <div>
           <fieldset className={styles.fieldset}>
             <legend className={styles.legend}>{person.name}</legend>
@@ -50,19 +49,23 @@ class PersonalPage extends Component {
             <div className={styles.inform}>
               <div className={styles.section}>
                 <p className={styles.value}>
-                  <span className={styles.key}>Temperament</span>{person.temperament}
+                  <span className={styles.key}>Temperament</span>
+                  {person.temperament}
                 </p>
               </div>
 
               <div className={styles.section}>
                 <p className={styles.value}>
-                  <span className={styles.key}>Origin:</span>{person.origin}
+                  <span className={styles.key}>Origin:</span>
+                  {person.origin}
                 </p>
                 <p className={styles.value}>
-                  <span className={styles.key}>Weight:</span>{person.weight.imperial}
+                  <span className={styles.key}>Weight:</span>
+                  {person.weight.imperial}
                 </p>
                 <p className={styles.value}>
-                  <span className={styles.key}>Life span:</span>{person.life_span}
+                  <span className={styles.key}>Life span:</span>
+                  {person.life_span}
                 </p>
               </div>
             </div>

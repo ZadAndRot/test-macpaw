@@ -90,30 +90,33 @@ class Breeds extends Component {
         </div>
 
         <Fragment>
-          <Grid5 page="breeds" items={this.props.items} />
+          {this.props.status === true && (
+            <Grid5 page="breeds" items={this.props.items} />
+          )}
           {this.props.status === false && <Loader />}
+          {this.props.status === true && (
+            <div className={styles.button_container}>
+              <button
+                className={styles.pages + ' ' + styles.pages_prev}
+                disabled={this.props.page === 0}
+                onClick={e => {
+                  this.goToPrev(e);
+                }}
+              >
+                PREV
+              </button>
 
-          <div className={styles.button_container}>
-            <button
-              className={styles.pages + ' ' + styles.pages_prev}
-              disabled={this.props.page === 0}
-              onClick={e => {
-                this.goToPrev(e);
-              }}
-            >
-              PREV
-            </button>
-
-            <button
-              className={styles.pages + ' ' + styles.pages_next}
-              disabled={!this.props.items === []}
-              onClick={e => {
-                this.goToNext(e);
-              }}
-            >
-              NEXT
-            </button>
-          </div>
+              <button
+                className={styles.pages + ' ' + styles.pages_next}
+                disabled={!this.props.items === []}
+                onClick={e => {
+                  this.goToNext(e);
+                }}
+              >
+                NEXT
+              </button>
+            </div>
+          )}
         </Fragment>
       </Fragment>
     );

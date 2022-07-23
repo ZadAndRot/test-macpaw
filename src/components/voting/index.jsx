@@ -43,82 +43,82 @@ class Voting extends Component {
     return (
       <Fragment>
         <div className={styles.container}>
-        <div className={styles.right}>
-          <Search
-            onOpenMenu={onOpenMenu}
-            voting_clicked_on={this.props.voting_clicked_on}
-            showFavorities={showFavorities}
-            onInputClicked={onInputClicked}
-          />
-          <div className={styles.page_voting}>
-            {page_id === 'breeds' && (
-              <Breeds
-                onGoBack={onGoBack}
-                all={all}
-                updateLimit={updateLimit}
-                updatePage={updatePage}
-                handleOrderItems={handleOrderItems}
-                status={status}
-                showElementByName={showElementByName}
-                items={items}
-                page={page}
-              />
-            )}
-            {page_id === 'search' && (
-              <SearchResults onGoBack={onGoBack} searched={searched} />
-            )}
-            {page_id === 'voting' && (
-              <VotingPage
-                onGoBack={onGoBack}
-                history={history}
-                items={all}
-                addHistory={addHistory}
-              />
-            )}
-            {page_id === 'gallery' && (
-              <Gallery
-                onGoBack={onGoBack}
-                showElementByName={showElementByName}
-                all={all}
-                addHistory={addHistory}
-                uploadedFiles={uploadedFiles}
-                open_modal={open_modal}
-              />
-            )}
-            {page_id === 'gefault' && <RightDefaulf />}
-            {page_id === 'favourite' && (
-              <Like
-                onGoBack={onGoBack}
-                addHistory={addHistory}
-                text="favorities"
-                title="FAVOURITES"
-                items={favourities}
-              />
-            )}
-            {page_id === 'likes' && (
-              <Like
-                onGoBack={onGoBack}
-                addHistory={addHistory}
-                text="likes"
-                title="LIKES"
-                items={likes}
-              />
-            )}
+          <div className={styles.right}>
+            <Search
+              onOpenMenu={onOpenMenu}
+              voting_clicked_on={this.props.voting_clicked_on}
+              showFavorities={showFavorities}
+              onInputClicked={onInputClicked}
+            />
+            <div className={styles.page_voting}>
+              {page_id === 'breeds' && (
+                <Breeds
+                  onGoBack={onGoBack}
+                  all={all}
+                  updateLimit={updateLimit}
+                  updatePage={updatePage}
+                  handleOrderItems={handleOrderItems}
+                  status={status}
+                  showElementByName={showElementByName}
+                  items={items}
+                  page={page}
+                />
+              )}
+              {page_id === 'search' && (
+                <SearchResults onGoBack={onGoBack} searched={searched} />
+              )}
+              {page_id === 'voting' && (
+                <VotingPage
+                  onGoBack={onGoBack}
+                  history={history}
+                  items={all}
+                  addHistory={addHistory}
+                />
+              )}
+              {page_id === 'gallery' && (
+                <Gallery
+                  onGoBack={onGoBack}
+                  showElementByName={showElementByName}
+                  all={all}
+                  addHistory={addHistory}
+                  uploadedFiles={uploadedFiles}
+                  open_modal={open_modal}
+                />
+              )}
+              {page_id === 'gefault' && <RightDefaulf />}
+              {page_id === 'favourite' && (
+                <Like
+                  onGoBack={onGoBack}
+                  addHistory={addHistory}
+                  text="favorities"
+                  title="FAVOURITES"
+                  items={favourities}
+                />
+              )}
+              {page_id === 'likes' && (
+                <Like
+                  onGoBack={onGoBack}
+                  addHistory={addHistory}
+                  text="likes"
+                  title="LIKES"
+                  items={likes}
+                />
+              )}
 
-            {page_id === 'dislikes' && (
-              <Like
-                onGoBack={onGoBack}
-                addHistory={addHistory}
-                text="dislikes"
-                title="DISLIKES"
-                items={dislikes}
-              />
-            )}
-            {page_id === 'personal' && (
-              <PersonalPage onGoBack={onGoBack} person={person} />
-            )}
+              {page_id === 'dislikes' && (
+                <Like
+                  onGoBack={onGoBack}
+                  addHistory={addHistory}
+                  text="dislikes"
+                  title="DISLIKES"
+                  items={dislikes}
+                />
+              )}
+              {page_id === 'personal' && (
+                <PersonalPage onGoBack={onGoBack} person={person} />
+              )}
+            </div>
           </div>
-        </div>
         </div>
       </Fragment>
     );

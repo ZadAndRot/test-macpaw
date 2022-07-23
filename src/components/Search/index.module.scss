@@ -132,25 +132,22 @@
     display: block;
     border: none;
   }
-  .search{
+  .search {
     width: 400px;
   }
-  
 }
 @media screen and (max-width: 800px) {
-  .search{
+  .search {
     width: 300px;
   }
 }
 @media screen and (min-width: 800px) {
-  
 }
 @media screen and (max-width: 600px) {
-  .search{
+  .search {
     display: none;
   }
-  .input_container button{
+  .input_container button {
     display: none;
   }
-  
 }

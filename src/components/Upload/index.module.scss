@@ -4,7 +4,7 @@
   --hover: rgba(255, 134, 142, 0.2);
   --active: #ff868e;
   --text: white;
-  --form:rgba(255, 255, 255, 0.5);
+  --form: rgba(255, 255, 255, 0.5);
 }
 .app_light {
   --form: white;
@@ -137,7 +137,6 @@
   height: 100%;
 }
 
-
 @media screen and (max-width: 1462px) {
   /* ... */
 }
@@ -148,11 +147,11 @@
   /* ... */
 }
 @media screen and (max-width: 600px) {
-  .modal_body{
+  .modal_body {
     width: 100vw;
     height: 100vh;
   }
-  .modal_back{
+  .modal_back {
     padding: 0px;
     background-color: var(--bgcolor);
   }

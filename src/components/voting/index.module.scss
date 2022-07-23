@@ -25,9 +25,18 @@
   background: var(--white);
   border-radius: 20px;
   width: 100%;
+  height: max-content;
   margin-top: 10px;
   padding: 30px;
   box-sizing: border-box;
+  overflow: auto;
+}
+.page_voting::-webkit-scrollbar {
+  display: none;
+}
+.page_voting {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 @media screen and (min-width: 1462px) {
@@ -35,7 +44,7 @@
 }
 @media screen and (max-width: 1000px) {
   .container {
-    width:100vw;
+    width: 100vw;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -53,6 +62,7 @@
     background-color: var(--bgcolor);
     z-index: 100;
     box-sizing: border-box;
+    height: max-content;
   }
 }
 @media screen and (min-width: 800px) {

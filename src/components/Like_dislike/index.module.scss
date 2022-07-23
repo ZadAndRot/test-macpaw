@@ -4,17 +4,15 @@
   --hover: rgba(255, 134, 142, 0.2);
   --active: #ff868e;
   --text: white;
-  --form:rgba(255, 255, 255, 0.5);
- 
+  --form: rgba(255, 255, 255, 0.5);
 }
 .app_light {
-  --form:white;
+  --form: white;
   --text: black;
   --white: #ffffff;
   --bgcolor: #e5e5e5;
   --hover: #fbe0dc;
   --active: #ff868e;
-
 }
 
 .button {
@@ -104,12 +102,12 @@
   height: 30px;
 }
 
-.cont{
+.cont {
   height: 75vh;
 }
 
 .history_container {
-  width:calc(100%-60px) ;
+  width: calc(100%-60px);
   height: 60px;
   margin: 5px auto;
   background: var(--form);
@@ -122,19 +120,17 @@
 
 .history {
   font-family: 'Jost';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-margin-left: 20px;
-/* identical to box height, or 150% */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 20px;
+  /* identical to box height, or 150% */
 
-
-color: #8C8C8C;
-
+  color: #8c8c8c;
 }
 
-.history span{
+.history span {
   font-weight: bold;
   color: var(--text);
 }
@@ -146,8 +142,8 @@ color: #8C8C8C;
   padding: 3px 10px;
   text-align: center;
   font-family: 'Jost';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }

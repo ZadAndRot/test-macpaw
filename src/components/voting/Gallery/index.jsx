@@ -109,6 +109,7 @@ class Gallery extends Component {
               GALLERY
             </button>
           </div>
+
           <button
             onClick={() => {
               this.props.open_modal();
@@ -174,22 +175,26 @@ class Gallery extends Component {
             </div>
           </div>
         </form>
-        <div className={styles.gallery}>
-          <Grid5
-            addHistory={this.props.addHistory}
-            items={this.state.items}
-            page="gallery"
-          />
-        </div>
+        {this.state.status === true && (
+          <div className={styles.gallery}>
+            <Grid5
+              addHistory={this.props.addHistory}
+              items={this.state.items}
+              page="gallery"
+            />
+          </div>
+        )}
         {this.state.status === false && <Loader />}
-        <button
-          onClick={() => {
-            this.loadMore();
-          }}
-          className={styles.more}
-        >
-          Upload photo
-        </button>
+        {this.state.status === true && (
+          <button
+            onClick={() => {
+              this.loadMore();
+            }}
+            className={styles.more}
+          >
+            Upload photo
+          </button>
+        )}
       </Fragment>
     );
   }

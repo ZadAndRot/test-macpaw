@@ -238,7 +238,6 @@ class Grid5 extends Component {
                         this.props.handleAddToHistory(this.props.text, el.id);
                       }}
                       className={styles.like}
-                      
                     >
                       {this.props.text === 'favorities' && (
                         <img src={favourite} alt="" />
