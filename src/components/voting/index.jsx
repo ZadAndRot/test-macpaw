@@ -19,6 +19,7 @@ class Voting extends Component {
     const {
       onOpenMenu,
       page,
+      limit,
       onGoBack,
       all,
       updatePage,
@@ -62,6 +63,7 @@ class Voting extends Component {
                   showElementByName={showElementByName}
                   items={items}
                   page={page}
+                  limit={limit}
                 />
               )}
               {page_id === 'search' && (

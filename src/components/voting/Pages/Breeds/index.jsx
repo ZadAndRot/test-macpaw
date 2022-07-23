@@ -108,7 +108,7 @@ class Breeds extends Component {
 
               <button
                 className={styles.pages + ' ' + styles.pages_next}
-                disabled={!this.props.items === []}
+                // disabled={this.props.items.length <this.props.limit}
                 onClick={e => {
                   this.goToNext(e);
                 }}

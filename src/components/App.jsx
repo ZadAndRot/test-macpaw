@@ -141,20 +141,29 @@ export class App extends Component {
           this.setState({
             status: true,
             items: json.filter(el =>
-              Object.keys(el).some(key => (key === 'image' ? true : false))
+              Object.keys(el).some(key =>
+                key === 'image'
+                  ? true:false
+              )
             ),
           });
         })
         .finally(this.setState({ status: false }))
     );
 
+    // this.setState(prev=>({limit:prev.limit+1}))
+
     fetch(`https://api.thecatapi.com/v1/breeds`).then(res =>
       res
         .json()
         .then(json => {
           this.setState({
+            status:true,
             all: json.filter(el =>
-              Object.keys(el).some(key => (key === 'image' ? true : false))
+              Object.keys(el).some(key =>
+                key === 'image'
+                  ? true:false
+              )
             ),
           });
         })
@@ -175,14 +184,26 @@ export class App extends Component {
           .then(json => {
             this.setState(prev => ({
               status: true,
-              items: [...json.filter(el =>
-                Object.keys(el).some(key => (key === 'image' ? true : false))
-              )],
+              items: [
+                ...json.filter(el =>
+                  Object.keys(el).some(key =>
+                    key === 'image'
+                      ?true:false
+                  )
+                ),
+              ],
             }));
             console.log(json);
           })
           .finally(this.setState({ status: false }))
       );
+    //   () => {
+    //     return true;
+    //   }
+    // : () => {
+    //     this.setState(prev => ({ limit: prev.limit + 1 }));
+    //     return false;
+    //   }
     }
   }
 
@@ -446,6 +467,7 @@ export class App extends Component {
             <RightDefaulf />
           ) : (
             <Voting
+              limit={this.state.limit}
               onOpenMenu={this.openMenu}
               voting_clicked_on={this.voting_clicked_on}
               page={this.state.page}
