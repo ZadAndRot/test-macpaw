@@ -34,81 +34,87 @@ class Grid5 extends Component {
       <Fragment>
         {this.props.page === 'gallery' && (
           <div>
-            {new_array.map(
-              item =>
-                item.lenght!==0 ? (
-                  <div key={new_array.indexOf(item)} className={item[0] ?styles.grid_container:styles.grid_container_none}>
-                    {item.map(el => (
-                      <div
-                        onMouseOver={e => {
-                          this.hoverBtn(e);
-                          console.log(item);
-                        }}
-                        onMouseLeave={e => {
-                          this.leaveBtn(e);
-                        }}
-                        key={el.id}
-                        className={
-                          item.indexOf(el) === 0
-                            ? styles.item0
-                            : null + item.indexOf(el) === 1
-                            ? styles.item1
-                            : null + item.indexOf(el) === 2
-                            ? styles.item2
-                            : null + item.indexOf(el) === 3
-                            ? styles.item3
-                            : null + item.indexOf(el) === 4
-                            ? styles.item4
-                            : null + item.indexOf(el) === 5
-                            ? styles.item5
-                            : null + item.indexOf(el) === 6
-                            ? styles.item6
-                            : null + item.indexOf(el) === 7
-                            ? styles.item7
-                            : null + item.indexOf(el) === 8
-                            ? styles.item8
-                            : null + item.indexOf(el) === 9
-                            ? styles.item9
-                            : null + item.indexOf(el) === 10
-                            ? styles.item10
-                            : null + item.indexOf(el) === 11
-                            ? styles.item11
-                            : null + item.indexOf(el) === 12
-                            ? styles.item12
-                            : null + item.indexOf(el) === 13
-                            ? styles.item13
-                            : null + item.indexOf(el) === 14
-                            ? styles.item14
-                            : null + item.indexOf(el) === 15
-                            ? styles.item15
-                            : null + item.indexOf(el) === 16
-                            ? styles.item16
-                            : null + item.indexOf(el) === 17
-                            ? styles.item17
-                            : null + item.indexOf(el) === 18
-                            ? styles.item18
-                            : null + item.indexOf(el) === 19
-                            ? styles.item19
-                            : null
-                        }
-                      >
-                        <div className={styles.hovered_div}>
-                          <button
-                            onClick={() => {
-                              this.props.addHistory('likes', el, false);
-                            }}
-                            className={styles.hovered_text}
-                          ></button>
-                        </div>
-                        <img
-                          className={styles.item_img}
-                          src={el.image.url}
-                          alt="hello"
-                        />
+            {new_array.map(item =>
+              item.lenght !== 0 ? (
+                <div
+                  key={new_array.indexOf(item)}
+                  className={
+                    item[0] ? styles.grid_container : styles.grid_container_none
+                  }
+                >
+                  {item.map(el => (
+                    <div
+                      onMouseOver={e => {
+                        this.hoverBtn(e);
+                        console.log(item);
+                      }}
+                      onMouseLeave={e => {
+                        this.leaveBtn(e);
+                      }}
+                      key={el.id}
+                      className={
+                        item.indexOf(el) === 0
+                          ? styles.item0
+                          : null + item.indexOf(el) === 1
+                          ? styles.item1
+                          : null + item.indexOf(el) === 2
+                          ? styles.item2
+                          : null + item.indexOf(el) === 3
+                          ? styles.item3
+                          : null + item.indexOf(el) === 4
+                          ? styles.item4
+                          : null + item.indexOf(el) === 5
+                          ? styles.item5
+                          : null + item.indexOf(el) === 6
+                          ? styles.item6
+                          : null + item.indexOf(el) === 7
+                          ? styles.item7
+                          : null + item.indexOf(el) === 8
+                          ? styles.item8
+                          : null + item.indexOf(el) === 9
+                          ? styles.item9
+                          : null + item.indexOf(el) === 10
+                          ? styles.item10
+                          : null + item.indexOf(el) === 11
+                          ? styles.item11
+                          : null + item.indexOf(el) === 12
+                          ? styles.item12
+                          : null + item.indexOf(el) === 13
+                          ? styles.item13
+                          : null + item.indexOf(el) === 14
+                          ? styles.item14
+                          : null + item.indexOf(el) === 15
+                          ? styles.item15
+                          : null + item.indexOf(el) === 16
+                          ? styles.item16
+                          : null + item.indexOf(el) === 17
+                          ? styles.item17
+                          : null + item.indexOf(el) === 18
+                          ? styles.item18
+                          : null + item.indexOf(el) === 19
+                          ? styles.item19
+                          : null
+                      }
+                    >
+                      <div className={styles.hovered_div}>
+                        <button
+                          onClick={() => {
+                            this.props.addHistory('likes', el, false);
+                          }}
+                          className={styles.hovered_text}
+                        ></button>
                       </div>
-                    ))}
-                  </div>
-                ):<div style={{display:"none"}}></div>
+                      <img
+                        className={styles.item_img}
+                        src={el.image.url}
+                        alt="hello"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div style={{ display: 'none' }}></div>
+              )
             )}
           </div>
         )}

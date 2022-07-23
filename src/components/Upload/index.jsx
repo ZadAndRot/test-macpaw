@@ -13,7 +13,16 @@ class Upload extends Component {
     forma.addEventListener('click', () => {
       inp.click();
     });
+    console.log(inp);
   }
+
+  drop = e => {
+    let file = e.target.dataTransfer.files[0];
+    this.setState({ images: URL.createObjectURL(file) });
+
+    file.isUploadung = true;
+    this.setState({ files: file });
+  };
 
   handleGetFile = e => {
     let file = e.target.files[0];
@@ -65,7 +74,9 @@ class Upload extends Component {
                 />
               )}
               <input
-                hidden
+                onDrop={e => {
+                  this.drop(e);
+                }}
                 className={styles.hidden}
                 onChange={e => {
                   this.handleGetFile(e);
@@ -82,6 +93,7 @@ class Upload extends Component {
                 type="button"
                 onClick={e => {
                   this.handleSentFile(e);
+                  console.log(e);
                 }}
                 className={styles.upload_photo}
               >
