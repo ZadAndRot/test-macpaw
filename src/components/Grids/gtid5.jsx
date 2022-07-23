@@ -105,71 +105,73 @@ class Grid5 extends Component {
         {this.props.page === 'breeds' && (
           <div>
             <div className={styles.grid_container}>
-              {items.map(el => (
-                el.image&&
-                <div
-                  onMouseOver={e => {
-                    this.hover(e);
-                    console.log(items);
-                  }}
-                  onMouseLeave={e => {
-                    this.leave(e);
-                  }}
-                  key={el.id}
-                  className={
-                    items.indexOf(el) === 0
-                      ? styles.item0
-                      : null + items.indexOf(el) === 1
-                      ? styles.item1
-                      : null + items.indexOf(el) === 2
-                      ? styles.item2
-                      : null + items.indexOf(el) === 3
-                      ? styles.item3
-                      : null + items.indexOf(el) === 4
-                      ? styles.item4
-                      : null + items.indexOf(el) === 5
-                      ? styles.item5
-                      : null + items.indexOf(el) === 6
-                      ? styles.item6
-                      : null + items.indexOf(el) === 7
-                      ? styles.item7
-                      : null + items.indexOf(el) === 8
-                      ? styles.item8
-                      : null + items.indexOf(el) === 9
-                      ? styles.item9
-                      : null + items.indexOf(el) === 10
-                      ? styles.item10
-                      : null + items.indexOf(el) === 11
-                      ? styles.item11
-                      : null + items.indexOf(el) === 12
-                      ? styles.item12
-                      : null + items.indexOf(el) === 13
-                      ? styles.item13
-                      : null + items.indexOf(el) === 14
-                      ? styles.item14
-                      : null + items.indexOf(el) === 15
-                      ? styles.item15
-                      : null + items.indexOf(el) === 16
-                      ? styles.item16
-                      : null + items.indexOf(el) === 17
-                      ? styles.item17
-                      : null + items.indexOf(el) === 18
-                      ? styles.item18
-                      : null + items.indexOf(el) === 19
-                      ? styles.item19
-                      : null
-                  }
-                >
-                  <div className={styles.hovered_div}>
-                    <span className={styles.hovered_text}>{el.name}</span>
-                  </div>
-                  <img
-                    className={styles.item_img}
-                    src={el.image.url}
-                    alt="hello"
-                  />
-                </div>
-              ))}
+              {items.map(
+                el =>
+                  el.image && (
+                    <div
+                      onMouseOver={e => {
+                        this.hover(e);
+                        console.log(items);
+                      }}
+                      onMouseLeave={e => {
+                        this.leave(e);
+                      }}
+                      key={el.id}
+                      className={
+                        items.indexOf(el) === 0
+                          ? styles.item0
+                          : null + items.indexOf(el) === 1
+                          ? styles.item1
+                          : null + items.indexOf(el) === 2
+                          ? styles.item2
+                          : null + items.indexOf(el) === 3
+                          ? styles.item3
+                          : null + items.indexOf(el) === 4
+                          ? styles.item4
+                          : null + items.indexOf(el) === 5
+                          ? styles.item5
+                          : null + items.indexOf(el) === 6
+                          ? styles.item6
+                          : null + items.indexOf(el) === 7
+                          ? styles.item7
+                          : null + items.indexOf(el) === 8
+                          ? styles.item8
+                          : null + items.indexOf(el) === 9
+                          ? styles.item9
+                          : null + items.indexOf(el) === 10
+                          ? styles.item10
+                          : null + items.indexOf(el) === 11
+                          ? styles.item11
+                          : null + items.indexOf(el) === 12
+                          ? styles.item12
+                          : null + items.indexOf(el) === 13
+                          ? styles.item13
+                          : null + items.indexOf(el) === 14
+                          ? styles.item14
+                          : null + items.indexOf(el) === 15
+                          ? styles.item15
+                          : null + items.indexOf(el) === 16
+                          ? styles.item16
+                          : null + items.indexOf(el) === 17
+                          ? styles.item17
+                          : null + items.indexOf(el) === 18
+                          ? styles.item18
+                          : null + items.indexOf(el) === 19
+                          ? styles.item19
+                          : null
+                      }
+                    >
+                      <div className={styles.hovered_div}>
+                        <span className={styles.hovered_text}>{el.name}</span>
+                      </div>
+                      <img
+                        className={styles.item_img}
+                        src={el.image.url}
+                        alt="hello"
+                      />
+                    </div>
+                  )
+              )}
             </div>
           </div>
         )}

@@ -62,9 +62,9 @@ class Search extends Component {
             showFavorities('dislikes');
           }}
           className={
-            page_id === 'favourite'
-              ? styles.button + ' ' + styles.button_upset_smile
-              : styles.button + ' ' + styles.active_dislike
+            page_id === 'dislikes'
+              ? styles.button + ' ' + styles.active_dislike
+              : styles.button + ' ' + styles.button_upset_smile
           }
         ></button>
       </div>
