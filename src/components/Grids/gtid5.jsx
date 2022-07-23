@@ -106,6 +106,7 @@ class Grid5 extends Component {
           <div>
             <div className={styles.grid_container}>
               {items.map(el => (
+                el.image&&
                 <div
                   onMouseOver={e => {
                     this.hover(e);

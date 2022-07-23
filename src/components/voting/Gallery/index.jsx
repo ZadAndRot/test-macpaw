@@ -20,7 +20,9 @@ class Gallery extends Component {
         .then(json => {
           this.setState(prev => ({
             status: true,
-            items: [...this.props.uploadedFiles, ...json],
+            items: [...this.props.uploadedFiles, ...json.filter(el =>
+              Object.keys(el).some(key => (key === 'image' ? true : false))
+            )],
           }));
           console.log(json);
         })
@@ -57,7 +59,9 @@ class Gallery extends Component {
           .then(json => {
             this.setState(prev => ({
               status: true,
-              items: [...this.props.uploadedFiles, ...json],
+              items: [...this.props.uploadedFiles, ...json.filter(el =>
+                Object.keys(el).some(key => (key === 'image' ? true : false))
+              )],
             }));
             console.log(json);
           })

@@ -141,7 +141,7 @@ export class App extends Component {
           this.setState({
             status: true,
             items: json.filter(el =>
-              Object.keys(el).some(key => (key === 'image' ? 1 : -1))
+              Object.keys(el).some(key => (key === 'image' ? true : false))
             ),
           });
         })
@@ -154,7 +154,7 @@ export class App extends Component {
         .then(json => {
           this.setState({
             all: json.filter(el =>
-              Object.keys(el).some(key => (key === 'image' ? 1 : -1))
+              Object.keys(el).some(key => (key === 'image' ? true : false))
             ),
           });
         })
@@ -175,7 +175,9 @@ export class App extends Component {
           .then(json => {
             this.setState(prev => ({
               status: true,
-              items: [...json],
+              items: [...json.filter(el =>
+                Object.keys(el).some(key => (key === 'image' ? true : false))
+              )],
             }));
             console.log(json);
           })
