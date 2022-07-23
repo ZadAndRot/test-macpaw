@@ -63,21 +63,23 @@
   background-color: var(--active);
 }
 
-.button_smile:active {
-  background-image: url(../images/smile_active.svg);
-}
-
-.button_heart:active {
-  background-image: url(../images/heart_active.svg);
-}
-
 .button_upset_smile {
   background-image: url(../images/upset_smile_default.svg);
 }
 
-.button_smile:active {
+.active_like {
+  background-image: url(../images/smile_active.svg);
   background-color: var(--active);
-  background-image: url(../images//smile_active.svg);
+}
+
+.active_favorite {
+  background-image: url(../images/heart_active.svg);
+  background-color: var(--active);
+}
+
+.active_dislike {
+  background-image: url(../images/upset_smile_active.svg);
+  background-color: var(--active);
 }
 
 .search {

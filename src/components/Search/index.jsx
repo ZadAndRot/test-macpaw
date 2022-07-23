@@ -7,7 +7,7 @@ class Search extends Component {
   };
 
   render() {
-    const { showFavorities, onInputClicked, onOpenMenu } = this.props;
+    const { showFavorities, onInputClicked, onOpenMenu, page_id } = this.props;
 
     return (
       <div className={styles.tools}>
@@ -36,24 +36,36 @@ class Search extends Component {
         </form>
 
         <button
-          active={true}
           onClick={() => {
             showFavorities('likes');
           }}
-          className={styles.button + ' ' + styles.button_smile}
+          className={
+            page_id === 'likes'
+              ? styles.button + ' ' + styles.active_like
+              : styles.button + ' ' + styles.button_smile
+          }
         ></button>
+
         <button
           onClick={() => {
             showFavorities('favourite');
           }}
-          className={styles.button + ' ' + styles.button_heart}
+          className={
+            page_id === 'favourite'
+              ? styles.button + ' ' + styles.active_favorite
+              : styles.button + ' ' + styles.button_heart
+          }
         ></button>
 
         <button
           onClick={() => {
             showFavorities('dislikes');
           }}
-          className={styles.button + ' ' + styles.button_upset_smile}
+          className={
+            page_id === 'favourite'
+              ? styles.button + ' ' + styles.button_upset_smile
+              : styles.button + ' ' + styles.active_dislike
+          }
         ></button>
       </div>
     );

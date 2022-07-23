@@ -50,6 +50,8 @@ class Voting extends Component {
               voting_clicked_on={this.props.voting_clicked_on}
               showFavorities={showFavorities}
               onInputClicked={onInputClicked}
+              page_id={page_id}
+              
             />
             <div className={styles.page_voting}>
               {page_id === 'breeds' && (

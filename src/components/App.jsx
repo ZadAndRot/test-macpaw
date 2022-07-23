@@ -141,10 +141,7 @@ export class App extends Component {
           this.setState({
             status: true,
             items: json.filter(el =>
-              Object.keys(el).some(key =>
-                key === 'image'
-                  ? true:false
-              )
+              Object.keys(el).some(key => (key === 'image' ? true : false))
             ),
           });
         })
@@ -158,12 +155,9 @@ export class App extends Component {
         .json()
         .then(json => {
           this.setState({
-            status:true,
+            status: true,
             all: json.filter(el =>
-              Object.keys(el).some(key =>
-                key === 'image'
-                  ? true:false
-              )
+              Object.keys(el).some(key => (key === 'image' ? true : false))
             ),
           });
         })
@@ -186,10 +180,7 @@ export class App extends Component {
               status: true,
               items: [
                 ...json.filter(el =>
-                  Object.keys(el).some(key =>
-                    key === 'image'
-                      ?true:false
-                  )
+                  Object.keys(el).some(key => (key === 'image' ? true : false))
                 ),
               ],
             }));
@@ -197,13 +188,13 @@ export class App extends Component {
           })
           .finally(this.setState({ status: false }))
       );
-    //   () => {
-    //     return true;
-    //   }
-    // : () => {
-    //     this.setState(prev => ({ limit: prev.limit + 1 }));
-    //     return false;
-    //   }
+      //   () => {
+      //     return true;
+      //   }
+      // : () => {
+      //     this.setState(prev => ({ limit: prev.limit + 1 }));
+      //     return false;
+      //   }
     }
   }
 
@@ -350,13 +341,9 @@ export class App extends Component {
   voting_clicked_on = (e, page) => {
     let active = document.getElementsByClassName(styles.flex_item_active);
     if (e.currentTarget === active[0]) {
-      e.currentTarget.classList.remove(styles.flex_item_active);
       this.setState({ page_id: 'default' });
       this.setState(prev => ({ path: [...prev.path, 'default'] }));
     } else {
-      active[0] && active[0].classList.remove(styles.flex_item_active);
-      e.currentTarget.classList.add(styles.flex_item_active);
-
       this.setState({ page_id: page });
       this.setState(prev => ({ path: [...prev.path, page] }));
     }
@@ -414,6 +401,9 @@ export class App extends Component {
 
             <div className={styles.container}>
               <div
+                className={
+                  this.state.page_id === 'voting' && styles.flex_item_active
+                }
                 onClick={e => {
                   this.voting_clicked_on(e, 'voting');
                 }}
@@ -428,6 +418,9 @@ export class App extends Component {
               </div>
 
               <div
+              className={
+                this.state.page_id === 'breeds' && styles.flex_item_active
+              }
                 onClick={e => {
                   this.voting_clicked_on(e, 'breeds');
                 }}
@@ -442,6 +435,9 @@ export class App extends Component {
               </div>
 
               <div
+              className={
+                this.state.page_id === 'gallery' && styles.flex_item_active
+              }
                 onClick={e => {
                   this.voting_clicked_on(e, 'gallery');
                 }}
