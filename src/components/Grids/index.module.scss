@@ -213,6 +213,10 @@
   height: 140px;
 }
 
+.grid_container_none{
+  display: none;
+}
+
 .grid_container {
   position: relative;
   display: grid;
@@ -232,7 +236,6 @@
   grid-gap: 10px;
   padding: 10px;
 }
-
 .hovered_div {
   position: absolute;
 

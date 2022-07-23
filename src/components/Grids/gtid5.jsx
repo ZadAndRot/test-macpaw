@@ -36,8 +36,8 @@ class Grid5 extends Component {
           <div>
             {new_array.map(
               item =>
-                item && (
-                  <div className={styles.grid_container}>
+                item.lenght!==0 ? (
+                  <div key={new_array.indexOf(item)} className={item[0] ?styles.grid_container:styles.grid_container_none}>
                     {item.map(el => (
                       <div
                         onMouseOver={e => {
@@ -108,7 +108,7 @@ class Grid5 extends Component {
                       </div>
                     ))}
                   </div>
-                )
+                ):<div style={{display:"none"}}></div>
             )}
           </div>
         )}
