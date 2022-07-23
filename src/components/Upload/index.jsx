@@ -10,9 +10,9 @@ class Upload extends Component {
   componentDidMount() {
     const forma = document.querySelector('form');
     const inp = forma.querySelector('input');
-    forma.addEventListener('click', () => {
-      inp.click();
-    });
+    // forma.addEventListener('click', () => {
+    //   inp.click();
+    // });
     console.log(inp);
   }
 
@@ -64,7 +64,7 @@ class Upload extends Component {
               </a>{' '}
               or face deletion.
             </p>
-            {this.state.images}
+           
             <form className={styles.desc}>
               {this.state.images && (
                 <img
@@ -78,6 +78,9 @@ class Upload extends Component {
                   this.drop(e);
                 }}
                 className={styles.hidden}
+                onClick={e => {
+                  this.handleGetFile(e);
+                }}
                 onChange={e => {
                   this.handleGetFile(e);
                 }}
@@ -100,7 +103,7 @@ class Upload extends Component {
                 UPLOAD PHOTO
               </button>
             ) : null}
-            <p className={styles.h2}>No file selected</p>
+            {this.state.images===null&&<p className={styles.h2}>No file selected</p>} 
           </div>
         </div>
       </Fragment>
